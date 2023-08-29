@@ -20,12 +20,6 @@ struct NewDeadlineForm: View {
         .toolbar(content: {
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button(action: {
-                    presentationMode.wrappedValue.dismiss()
-                }, label: {
-                    Text("Cancel")
-                })
-                
-                Button(action: {
                     self.addDummyDeadline()
                     presentationMode.wrappedValue.dismiss()
                 }, label: {

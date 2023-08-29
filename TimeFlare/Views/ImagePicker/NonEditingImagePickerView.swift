@@ -1,5 +1,5 @@
 //
-//  ImagePickerView.swift
+//  NonEditingImagePickerView.swift
 //  TimeFlare
 //
 //  Created by Ricardo Sanchez-Macias on 8/29/23.
@@ -8,10 +8,9 @@
 import SwiftUI
 import PhotosUI
 
-struct ImagePickerView: View {
+struct NonEditingImagePickerView: View {
     
-    @State private var imageSelection: PhotosPickerItem? = nil
-    
+    @State var imageSelection: PhotosPickerItem?
     @State private var selectedImage: Image?
     
     var body: some View {
@@ -55,8 +54,9 @@ struct ImagePickerView: View {
             selectedImage = await FileService.shared.loadImage(from: photoPickerItem)
         }
     }
+    
 }
 
 #Preview {
-    ImagePickerView()
+    NonEditingImagePickerView()
 }
