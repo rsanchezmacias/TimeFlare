@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct DashboardToolbar: ToolbarContent {
+struct DashboardToolbar<Content: View> : ToolbarContent {
+    
+    @ViewBuilder var addDeadlineContent: () -> Content
     
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
-            HStack {
+            LazyHStack {
                 Image.appIconTransparent
                     .resizable()
                     .aspectRatio(contentMode: .fit)
+                    .frame(width: 44, height: 44)
                 Text("TimeFlare")
                     .font(.system(size: 24))
                     .bold()
@@ -23,12 +26,12 @@ struct DashboardToolbar: ToolbarContent {
         }
         
         ToolbarItemGroup(placement: .topBarTrailing) {
-            HStack(alignment: .center) {
-                Button(action: {
-                    
-                }, label: {
+            LazyHStack(alignment: .center) {                
+                NavigationLink {
+                    addDeadlineContent()
+                } label: {
                     Text("Add")
-                })
+                }
             }
         }
     }
@@ -39,7 +42,9 @@ struct DashboardToolbar: ToolbarContent {
     return NavigationView(content: {
         Text("PlaceHolder")
             .toolbar(content: {
-                DashboardToolbar()
+                DashboardToolbar {
+                    Text("Test")
+                }
             })
     })
 }

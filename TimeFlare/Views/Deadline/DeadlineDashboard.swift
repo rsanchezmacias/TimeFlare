@@ -21,7 +21,9 @@ struct DeadlineDashboard: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                DashboardToolbar()
+                DashboardToolbar(addDeadlineContent: {
+                    NewDeadlineForm()
+                })
             }
         })
     }

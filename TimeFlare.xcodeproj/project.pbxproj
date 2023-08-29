@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9200B9B2A9D782E0017C9BA /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9A2A9D782E0017C9BA /* Injected.swift */; };
+		A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */; };
+		A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9E2A9DC2070017C9BA /* Namespace.swift */; };
+		A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */; };
+		A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA42A9E796C0017C9BA /* ImagePickerView.swift */; };
+		A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA62A9E94DB0017C9BA /* FileService.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -46,6 +52,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A9200B9A2A9D782E0017C9BA /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineManager.swift; sourceTree = "<group>"; };
+		A9200B9E2A9DC2070017C9BA /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
+		A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeadlineForm.swift; sourceTree = "<group>"; };
+		A9200BA42A9E796C0017C9BA /* ImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerView.swift; sourceTree = "<group>"; };
+		A9200BA62A9E94DB0017C9BA /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		A98F28782A99CB67002585F5 /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TimeFlare.app; path = "/Users/rsanchez-macias/Desktop/New Job Projects/TimeFlare/build/Debug-iphoneos/TimeFlare.app"; sourceTree = "<absolute>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
@@ -74,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A9200B992A9D78190017C9BA /* Dependency_Injection */ = {
+			isa = PBXGroup;
+			children = (
+				A9200B9A2A9D782E0017C9BA /* Injected.swift */,
+			);
+			path = Dependency_Injection;
+			sourceTree = "<group>";
+		};
 		A98F286F2A99CB67002585F5 = {
 			isa = PBXGroup;
 			children = (
@@ -109,8 +129,11 @@
 		A98F288C2A9A9F5E002585F5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				A9200B992A9D78190017C9BA /* Dependency_Injection */,
 				A9A178172A9D2ED4000B62A7 /* Data+Extension.swift */,
 				A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */,
+				A9200B9E2A9DC2070017C9BA /* Namespace.swift */,
+				A9200BA62A9E94DB0017C9BA /* FileService.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -136,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A98F28942A9A9FD0002585F5 /* Deadline.swift */,
+				A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -145,6 +169,7 @@
 			children = (
 				A98F28922A9A9FB0002585F5 /* DeadlineRow.swift */,
 				A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */,
+				A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */,
 			);
 			path = Deadline;
 			sourceTree = "<group>";
@@ -162,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */,
+				A9200BA42A9E796C0017C9BA /* ImagePickerView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -244,14 +270,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
+				A9200B9B2A9D782E0017C9BA /* Injected.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
+				A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */,
 				A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */,
 				A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */,
 				A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */,
+				A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */,
+				A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */,
 				A98F28952A9A9FD0002585F5 /* Deadline.swift in Sources */,
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
+				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
 				A9A178182A9D2ED4000B62A7 /* Data+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
