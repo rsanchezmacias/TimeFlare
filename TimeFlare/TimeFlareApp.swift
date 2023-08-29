@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct TimeFlareApp: App {
+    
     var body: some Scene {
+        
         WindowGroup {
-            ContentView()
+            MainContentView()
         }
+        .modelContainer(for: Deadline.self)
     }
+    
 }
