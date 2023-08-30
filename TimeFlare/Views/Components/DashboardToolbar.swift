@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct DashboardToolbar<Content: View> : ToolbarContent {
+struct DashboardToolbar<Content: View>: ToolbarContent {
     
     @ViewBuilder var addDeadlineContent: () -> Content
     @Environment(\.editMode) private var editMode

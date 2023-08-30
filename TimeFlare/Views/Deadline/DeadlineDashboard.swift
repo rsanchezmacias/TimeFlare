@@ -58,7 +58,7 @@ struct DeadlineDashboard: View {
                     editButtonVisible: $editButtonVisible
                 )
             }
-            .onChange(of: deadlines, initial: false) { oldValue, newValue in
+            .onChange(of: deadlines, initial: false) { _, _ in
                 editButtonVisible = !deadlines.isEmpty
             }
         })

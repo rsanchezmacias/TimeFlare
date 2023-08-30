@@ -13,7 +13,7 @@ struct NewDeadlineForm: View {
     @Environment(\.presentationMode) var presentationMode
     @Environment(\.modelContext) var modelContext
     
-    @State var deadlineImage: UIImage? = nil
+    @State var deadlineImage: UIImage?
     @State var titleText: String = ""
     @State var bodyText: String = ""
     @State var deadlineDate: Date = Date.now
