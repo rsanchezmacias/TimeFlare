@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct DashboardToolbar<Content: View> : ToolbarContent {
     
     @ViewBuilder var addDeadlineContent: () -> Content
+    @Environment(\.editMode) private var editMode
+    
+    @Binding var editButtonVisible: Bool
     
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
@@ -26,11 +30,18 @@ struct DashboardToolbar<Content: View> : ToolbarContent {
         }
         
         ToolbarItemGroup(placement: .topBarTrailing) {
-            LazyHStack(alignment: .center) {                
-                NavigationLink {
-                    addDeadlineContent()
-                } label: {
-                    Text("Add")
+            LazyHStack(alignment: .center) {
+                
+                if editButtonVisible {
+                    EditButton()
+                }
+                
+                if editMode?.wrappedValue == .inactive {
+                    NavigationLink {
+                        addDeadlineContent()
+                    } label: {
+                        Text("Add")
+                    }
                 }
             }
         }
@@ -42,9 +53,9 @@ struct DashboardToolbar<Content: View> : ToolbarContent {
     return NavigationView(content: {
         Text("PlaceHolder")
             .toolbar(content: {
-                DashboardToolbar {
-                    Text("Test")
-                }
+                DashboardToolbar(addDeadlineContent: {
+                    Text("Add")
+                }, editButtonVisible: .constant(true))
             })
     })
 }
