@@ -21,7 +21,11 @@ struct DeadlineDashboard: View {
             List {
                 ForEach(deadlines) { deadline in
                     if !deadline.title.isEmpty {
-                        DeadlineRow(deadline: deadline)
+                        NavigationLink {
+                            DeadlineView(deadline: deadline)
+                        } label: {
+                            DeadlineRow(deadline: deadline)
+                        }
                     }
                 }
                 .onDelete(perform: { indexSet in

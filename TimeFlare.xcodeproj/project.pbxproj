@@ -29,6 +29,7 @@
 		A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */; };
 		A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */; };
 		A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */; };
+		A9B774972A9FE7310037E598 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774962A9FE7310037E598 /* DeadlineView.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDashboard.swift; sourceTree = "<group>"; };
 		A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
+		A9B774962A9FE7310037E598 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -160,8 +162,8 @@
 		A98F288E2A9A9F68002585F5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A9200BA82A9EA60A0017C9BA /* ImagePicker */,
 				A98F287D2A99CB67002585F5 /* MainContentView.swift */,
+				A9200BA82A9EA60A0017C9BA /* ImagePicker */,
 				A9A1781B2A9D3364000B62A7 /* Components */,
 				A98F28912A9A9F99002585F5 /* Deadline */,
 			);
@@ -190,6 +192,7 @@
 				A98F28922A9A9FB0002585F5 /* DeadlineRow.swift */,
 				A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */,
 				A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */,
+				A9B774962A9FE7310037E598 /* DeadlineView.swift */,
 			);
 			path = Deadline;
 			sourceTree = "<group>";
@@ -320,6 +323,7 @@
 				A9200B9B2A9D782E0017C9BA /* Injected.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
 				A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */,
+				A9B774972A9FE7310037E598 /* DeadlineView.swift in Sources */,
 				A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */,
 				A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */,
 				A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */,
@@ -476,7 +480,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,7 +514,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
