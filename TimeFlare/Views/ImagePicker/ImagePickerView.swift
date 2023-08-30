@@ -9,16 +9,10 @@ import SwiftUI
 
 struct ImagePickerView: View {
     
-    @State var selectedImage: Image?
-    @State private var showingImagePicker: Bool = false
+    /// Pass a binding for the selected image from the picker, if any
+    @Binding var selectedUIImage: UIImage?
     
-    @State private var selectedUIImage: UIImage? {
-        didSet {
-            if let selectedUIImage {
-                selectedImage = Image(uiImage: selectedUIImage)
-            }
-        }
-    }
+    @State private var showingImagePicker: Bool = false
     
     var body: some View {
         VStack {
@@ -46,10 +40,11 @@ struct ImagePickerView: View {
         .onTapGesture {
             showingImagePicker.toggle()
         }
+        
     }
     
 }
 
 #Preview {
-    ImagePickerView()
+    ImagePickerView(selectedUIImage: .constant(nil))
 }

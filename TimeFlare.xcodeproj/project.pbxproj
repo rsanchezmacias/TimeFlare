@@ -15,6 +15,7 @@
 		A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA62A9E94DB0017C9BA /* FileService.swift */; };
 		A9200BAA2A9EA6340017C9BA /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA92A9EA6340017C9BA /* ImagePickerViewController.swift */; };
 		A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAB2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift */; };
+		A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */; };
 		A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */; };
 		A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */; };
+		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -62,7 +64,7 @@
 		A9200BA62A9E94DB0017C9BA /* FileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
 		A9200BA92A9EA6340017C9BA /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		A9200BAB2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonEditingImagePickerView.swift; sourceTree = "<group>"; };
-		A98F28782A99CB67002585F5 /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = TimeFlare.app; path = "/Users/rsanchez-macias/Desktop/New Job Projects/TimeFlare/build/Debug-iphoneos/TimeFlare.app"; sourceTree = "<absolute>"; };
+		A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A98F287F2A99CB6C002585F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,6 +79,8 @@
 		A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDashboard.swift; sourceTree = "<group>"; };
 		A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
+		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				A98F287A2A99CB67002585F5 /* TimeFlare */,
+				A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -202,6 +207,8 @@
 			isa = PBXGroup;
 			children = (
 				A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */,
+				A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */,
+				A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -227,7 +234,7 @@
 			packageProductDependencies = (
 			);
 			productName = TimeFlare;
-			productReference = A98F28782A99CB67002585F5 /* TimeFlare.app */;
+			productReference = A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -285,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */,
+				A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
 				A9200B9B2A9D782E0017C9BA /* Injected.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
@@ -300,6 +308,7 @@
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
+				A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */,
 				A9A178182A9D2ED4000B62A7 /* Data+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

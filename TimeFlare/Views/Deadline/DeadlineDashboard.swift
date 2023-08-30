@@ -16,7 +16,9 @@ struct DeadlineDashboard: View {
         NavigationView(content: {
             List {
                 ForEach(deadlines) { deadline in
-                    DeadlineRow(deadline: deadline)
+                    if !deadline.title.isEmpty {
+                        DeadlineRow(deadline: deadline)
+                    }
                 }
             }
             .navigationBarTitleDisplayMode(.inline)
