@@ -20,7 +20,7 @@ struct DeadlineView: View {
     var body: some View {
         GeometryReader(content: { geometry in
             ScrollView {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 24) {
                     HStack {
                         Spacer()
                         Rectangle()
@@ -73,7 +73,18 @@ struct DeadlineView: View {
                             }
                         }
                     }
-                    .padding(.top, 24)
+                    
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Deadline")
+                            .font(.system(size: 16, weight: .bold))
+                        
+                        if deadline.endDate > Date.now {
+                            CountdownDateTimer(endDate: deadline.endDate)
+                                .font(.system(size: 14))
+                        } else {
+                            Text("Deadline is over...")
+                        }
+                    }
                     
                     Spacer()
                 }
