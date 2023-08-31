@@ -16,6 +16,7 @@ struct DeadlineView: View {
     @State private var newTitleText: String = ""
     @State private var newDescriptionText: String = ""
     @State private var newDeadlineImage: UIImage?
+    @State private var newDeadlineDate: Date = Date.now
     
     var body: some View {
         GeometryReader(content: { geometry in
@@ -75,14 +76,22 @@ struct DeadlineView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: 8) {
-                        Text("Deadline")
-                            .font(.system(size: 16, weight: .bold))
-                        
-                        if deadline.endDate > Date.now {
-                            CountdownDateTimer(endDate: deadline.endDate)
-                                .font(.system(size: 14))
+                        if editing {
+                            InputDatePicker(
+                                date: $newDeadlineDate,
+                                titleLabel: "What is the new deadline?",
+                                subtitleLabel: "Updated date:"
+                            )
                         } else {
-                            Text("Deadline is over...")
+                            Text(editing ? "Deadline" : "What is the new deadline?")
+                                .font(.system(size: 16, weight: .bold))
+                            
+                            if deadline.endDate > Date.now {
+                                CountdownDateTimer(endDate: deadline.endDate)
+                                    .font(.system(size: 14))
+                            } else {
+                                Text("Deadline is over...")
+                            }
                         }
                     }
                     
@@ -126,8 +135,7 @@ struct DeadlineView: View {
                     }
                 }
                 .onAppear(perform: {
-                    newTitleText = deadline.title
-                    newDescriptionText = deadline.body ?? ""
+                    onAppear()
                 })
                 
             }
@@ -136,13 +144,24 @@ struct DeadlineView: View {
     
     private func onSave() {
         deadline.title = newTitleText
-        deadline.imageData = newDeadlineImage?.toData()
         deadline.body = newDescriptionText
+        deadline.endDate = newDeadlineDate
+        
+        if newDeadlineImage != nil {
+            deadline.imageData = newDeadlineImage?.toData()
+        }
     }
     
     private func onCancel() {
         newTitleText = deadline.title
         newDeadlineImage = nil
+        newDescriptionText = deadline.body ?? ""
+        newDeadlineDate = deadline.endDate
+    }
+    
+    private func onAppear() {
+        newDeadlineDate = deadline.endDate
+        newTitleText = deadline.title
         newDescriptionText = deadline.body ?? ""
     }
     

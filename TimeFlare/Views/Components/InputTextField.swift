@@ -26,6 +26,7 @@ struct InputTextField: View {
             TextField(text: $currentInput, axis: axis) {
                 Text(textFieldPlaceholderText)
             }
+            .font(.system(size: 14))
             .autocorrectionDisabled()
             .textInputAutocapitalization(nil)
             .focused($focused)
@@ -47,6 +48,7 @@ struct InputTextField: View {
             Rectangle()
                 .fill(focused ? Color.charcoal : Color.gray)
                 .frame(height: 2)
+                .padding(.top, 2)
         }
 
     }
