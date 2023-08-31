@@ -9,48 +9,107 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-@Model
-class Deadline {
+typealias Deadline = DeadlineSchemaV2.Deadline
+
+enum DeadlineSchemaV1: VersionedSchema {
     
-    let id: UUID
-    var title: String
-    var body: String?
-    var endDate: Date
-    var creationDate: Date
-    var imageData: Data?
+    static var versionIdentifier: Schema.Version = Schema.Version(0, 1, 0)
     
-    @Transient var image: Image? {
-        return imageData?.toImage()
+    static var models: [any PersistentModel.Type] {
+        [Deadline.self]
     }
     
-    init(
-        title: String,
-        body: String,
-        endDate: Date,
-        creationDate: Date,
-        imageData: Data?
-    ) {
-        self.id = UUID()
+    @Model
+    class Deadline: Identifiable, Hashable {
         
-        self.title = title
-        self.body = body
-        self.endDate = endDate
-        self.creationDate = creationDate
-        self.imageData = imageData
+        let id: UUID
+        var title: String
+        var body: String?
+        var endDate: Date
+        var creationDate: Date
+        var imageData: Data?
+        
+        @Transient var image: Image? {
+            return imageData?.toImage()
+        }
+        
+        init(
+            title: String,
+            body: String,
+            endDate: Date,
+            creationDate: Date,
+            imageData: Data?
+        ) {
+            self.id = UUID()
+            
+            self.title = title
+            self.body = body
+            self.endDate = endDate
+            self.creationDate = creationDate
+            self.imageData = imageData
+        }
+        
+        static func == (lhs: Deadline, rhs: Deadline) -> Bool {
+            return lhs.id == rhs.id
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+        
     }
     
 }
 
-extension Deadline: Identifiable { }
-
-extension Deadline: Hashable {
+enum DeadlineSchemaV2: VersionedSchema {
     
-    static func == (lhs: Deadline, rhs: Deadline) -> Bool {
-        return lhs.id == rhs.id
+    static var versionIdentifier: Schema.Version = Schema.Version(0, 2, 0)
+    
+    static var models: [any PersistentModel.Type] {
+        [Deadline.self]
     }
     
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
+    @Model
+    class Deadline: Identifiable, Hashable {
+        
+        let id: UUID
+        var title: String
+        var body: String?
+        var endDate: Date
+        var creationDate: Date
+        var imageData: Data?
+        var featured: Bool = false
+        
+        @Transient var image: Image? {
+            return imageData?.toImage()
+        }
+        
+        init(
+            title: String,
+            body: String,
+            endDate: Date,
+            creationDate: Date,
+            imageData: Data?,
+            featured: Bool = false
+        ) {
+            self.id = UUID()
+            
+            self.title = title
+            self.body = body
+            self.endDate = endDate
+            self.creationDate = creationDate
+            self.imageData = imageData
+            self.featured = featured
+        }
+        
+        static func == (lhs: Deadline, rhs: Deadline) -> Bool {
+            return lhs.id == rhs.id
+        }
+        
+        func hash(into hasher: inout Hasher) {
+            hasher.combine(id)
+        }
+        
     }
     
 }

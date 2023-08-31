@@ -12,11 +12,10 @@ import SwiftData
 struct TimeFlareApp: App {
     
     var body: some Scene {
-        
         WindowGroup {
             MainContentView()
         }
-        .modelContainer(for: Deadline.self)
+        .environmentObject(DeadlineManager())
     }
     
 }

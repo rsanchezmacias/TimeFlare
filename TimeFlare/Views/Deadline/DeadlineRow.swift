@@ -22,13 +22,7 @@ struct DeadlineRow: View {
                     .frame(width: 70)
                     .clipShape(.rect(cornerRadius: 8))
             } else {
-                Image(systemName: "photo.fill")
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .padding()
-                    .frame(width: 70)
-                    .background(Color.gray.opacity(0.4))
-                    .clipShape(.rect(cornerRadius: 8))
+                DefaultImageThumbnail(size: 70)
             }
             
             VStack(alignment: .leading, spacing: 4, content: {

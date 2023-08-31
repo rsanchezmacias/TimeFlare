@@ -11,7 +11,7 @@ import UIKit
 struct NewDeadlineForm: View {
     
     @Environment(\.presentationMode) var presentationMode
-    @Environment(\.modelContext) var modelContext
+    @EnvironmentObject private var deadlineManager: DeadlineManager
     
     @State var deadlineImage: UIImage?
     @State var titleText: String = ""
@@ -75,13 +75,15 @@ struct NewDeadlineForm: View {
 extension NewDeadlineForm {
     
     func addDummyDeadline() {
-        modelContext.insert(Deadline(
-            title: titleText,
-            body: bodyText,
-            endDate: deadlineDate,
-            creationDate: Date.now,
-            imageData: deadlineImage?.toData()
-        ))
+        deadlineManager.save(
+            deadline: Deadline(
+                title: titleText,
+                body: bodyText,
+                endDate: deadlineDate,
+                creationDate: Date.now,
+                imageData: deadlineImage?.toData()
+            )
+        )
     }
     
 }

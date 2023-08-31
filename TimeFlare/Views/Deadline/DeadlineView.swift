@@ -31,8 +31,12 @@ struct DeadlineView: View {
                                     Image(uiImage: newDeadlineImage)
                                         .deadlineThumbnail()
                                 } else {
-                                    deadline.image?
-                                        .deadlineThumbnail()
+                                    if let deadlineImage = deadline.image {
+                                        deadlineImage
+                                            .deadlineThumbnail()
+                                    } else {
+                                        DefaultImageThumbnail(size: geometry.size.width * 0.75)
+                                    }
                                 }
                             }
                             .overlay {
@@ -55,8 +59,19 @@ struct DeadlineView: View {
                                     axis: .horizontal
                                 )
                             } else {
-                                Text(deadline.title)
-                                    .font(.system(size: 18, weight: .bold))
+                                HStack {
+                                    Text(deadline.title)
+                                        .font(.system(size: 18, weight: .bold))
+                                    Spacer()
+                                    Button {
+                                        deadline.featured.toggle()
+                                    } label: {
+                                        Label("Set as featured deadline", systemImage: deadline.featured ? "star.fill" : "star" )
+                                            .labelStyle(.iconOnly)
+                                            .foregroundStyle(Color.yellow)
+                                    }
+
+                                }
                             }
                         }
                         

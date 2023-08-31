@@ -10,8 +10,7 @@ import SwiftData
 
 struct DeadlineDashboard: View {
     
-    @Environment(\.modelContext) var modelContext
-    @Query var deadlines: [Deadline]
+    @EnvironmentObject private var deadlineManager: DeadlineManager
     
     @State private var editButtonVisible: Bool = false
     
@@ -19,7 +18,7 @@ struct DeadlineDashboard: View {
         NavigationView(content: {
             
             List {
-                ForEach(deadlines) { deadline in
+                ForEach(deadlineManager.deadlines) { deadline in
                     if !deadline.title.isEmpty {
                         NavigationLink {
                             DeadlineView(deadline: deadline)
@@ -29,12 +28,12 @@ struct DeadlineDashboard: View {
                     }
                 }
                 .onDelete(perform: { indexSet in
-                    deleteDeadlineAt(indexSet: indexSet)
+                    deadlineManager.deleteDeadlineAt(indexSet: indexSet)
                 })
             }
             .navigationBarTitleDisplayMode(.inline)
             .overlay {
-                if deadlines.isEmpty {
+                if deadlineManager.deadlines.isEmpty {
                     VStack(alignment: .center, content: {
                         HStack(content: {
                             Image(systemName: "questionmark.circle")
@@ -62,21 +61,14 @@ struct DeadlineDashboard: View {
                     editButtonVisible: $editButtonVisible
                 )
             }
-            .onChange(of: deadlines, initial: false) { _, _ in
-                editButtonVisible = !deadlines.isEmpty
+            .onChange(of: deadlineManager.deadlines, initial: false) { _, _ in
+                editButtonVisible = !deadlineManager.deadlines.isEmpty
+            }
+            .onAppear {
+                deadlineManager.refreshDeadlines()
             }
         })
-    }
-    
-    func deleteDeadlineAt(indexSet: IndexSet) {
-        for index in indexSet {
-            if index < 0 || index >= deadlines.count {
-                continue
-            }
-            
-            let deadlineToDelete = deadlines[index]
-            modelContext.delete(deadlineToDelete)
-        }
+        
     }
     
 }
