@@ -18,8 +18,8 @@ struct DeadlineView: View {
     @State private var newDeadlineImage: UIImage?
     
     var body: some View {
-        ScrollView {
-            GeometryReader(content: { geometry in
+        GeometryReader(content: { geometry in
+            ScrollView {
                 VStack(alignment: .leading) {
                     HStack {
                         Spacer()
@@ -28,14 +28,10 @@ struct DeadlineView: View {
                             .overlay {
                                 if let newDeadlineImage = newDeadlineImage {
                                     Image(uiImage: newDeadlineImage)
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(.rect(cornerRadius: 8))
+                                        .deadlineThumbnail()
                                 } else {
                                     deadline.image?
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .clipShape(.rect(cornerRadius: 8))
+                                        .deadlineThumbnail()
                                 }
                             }
                             .overlay {
@@ -122,8 +118,9 @@ struct DeadlineView: View {
                     newTitleText = deadline.title
                     newDescriptionText = deadline.body ?? ""
                 })
-            })
-        }
+                
+            }
+        })
     }
     
     private func onSave() {

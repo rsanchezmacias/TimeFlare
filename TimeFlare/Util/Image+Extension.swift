@@ -14,6 +14,13 @@ extension Image {
         return Image("logo_transparent")
     }
     
+    public func deadlineThumbnail() -> some View {
+        return self
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .clipShape(.rect(cornerRadius: 8))
+    }
+    
 }
 
 extension UIImage {
