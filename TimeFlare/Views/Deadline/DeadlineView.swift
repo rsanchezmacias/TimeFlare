@@ -19,97 +19,109 @@ struct DeadlineView: View {
     
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading) {
-                HStack {
-                    Spacer()
-                    Rectangle()
-                        .fill(Color.clear)
-                        .overlay {
-                            if let newDeadlineImage = newDeadlineImage {
-                                Image(uiImage: newDeadlineImage)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            } else {
-                                deadline.image?
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .clipShape(.rect(cornerRadius: 8))
+            GeometryReader(content: { geometry in
+                VStack(alignment: .leading) {
+                    HStack {
+                        Spacer()
+                        Rectangle()
+                            .fill(Color.clear)
+                            .overlay {
+                                if let newDeadlineImage = newDeadlineImage {
+                                    Image(uiImage: newDeadlineImage)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(.rect(cornerRadius: 8))
+                                } else {
+                                    deadline.image?
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .clipShape(.rect(cornerRadius: 8))
+                                }
                             }
-                        }
-                        .overlay {
+                            .overlay {
+                                if editing {
+                                    ImagePickerView(selectedUIImage: $newDeadlineImage)
+                                }
+                            }
+                            .aspectRatio(1, contentMode: .fill)
+                            .frame(width: geometry.size.width * 0.75)
+                        Spacer()
+                    }
+                    
+                    VStack(alignment: .leading, spacing: editing ? 16 : 8) {
+                        VStack {
                             if editing {
-                                ImagePickerView(selectedUIImage: $newDeadlineImage)
+                                InputTextField(
+                                    currentInput: $newTitleText,
+                                    topLabelText: "Updated Title",
+                                    textFieldPlaceholderText: "Deadline title...",
+                                    axis: .horizontal
+                                )
+                            } else {
+                                Text(deadline.title)
+                                    .font(.system(size: 18, weight: .bold))
                             }
                         }
+                        
+                        VStack {
+                            if editing {
+                                InputTextField(
+                                    currentInput: $newDescriptionText,
+                                    topLabelText: "Updated Description",
+                                    textFieldPlaceholderText: "What deadline is approaching?",
+                                    axis: .vertical
+                                )
+                            } else if let body = deadline.body {
+                                Text(body)
+                                    .font(.system(size: 14))
+                            }
+                        }
+                    }
+                    .padding(.top, 24)
+                    
                     Spacer()
-                }.frame(height: 300)
-                
-                VStack(alignment: .leading, spacing: editing ? 16 : 8) {
-                    VStack {
-                        if editing {
-                            InputTextField(
-                                currentInput: $newTitleText,
-                                topLabelText: "Updated Title",
-                                textFieldPlaceholderText: "Deadline title...",
-                                axis: .horizontal
-                            )
-                        } else {
-                            Text(deadline.title)
-                                .font(.system(size: 18, weight: .bold))
+                }
+                .padding([.leading, .trailing], 32)
+                .padding(.top, 40)
+                .toolbar {
+                    if !editing {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(action: {
+                                withAnimation {
+                                    editing = true
+                                }
+                            }, label: {
+                                Text("Edit")
+                            })
                         }
-                    }
-                    
-                    VStack {
-                        if editing {
-                            InputTextField(
-                                currentInput: $newDescriptionText,
-                                topLabelText: "Updated Description",
-                                textFieldPlaceholderText: "What deadline is approaching?",
-                                axis: .vertical
-                            )
-                        } else if let body = deadline.body {
-                            Text(body)
-                                .font(.system(size: 14))
+                    } else {
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(action: {
+                                withAnimation {
+                                    editing = false
+                                }
+                                onCancel()
+                            }, label: {
+                                Text("Cancel")
+                            })
+                        }
+                        
+                        ToolbarItem(placement: .topBarTrailing) {
+                            Button(action: {
+                                withAnimation {
+                                    editing = false
+                                }
+                                onSave()
+                            }, label: {
+                                Text("Save")
+                            })
                         }
                     }
                 }
-                .padding(.top, 24)
-                
-                Spacer()
-            }
-            .padding([.leading, .trailing], 32)
-            .padding(.top, 40)
-            .toolbar {
-                if !editing {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: {
-                            editing = true
-                        }, label: {
-                            Text("Edit")
-                        })
-                    }
-                } else {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: {
-                            editing = false
-                        }, label: {
-                            Text("Cancel")
-                        })
-                    }
-                    
-                    ToolbarItem(placement: .topBarTrailing) {
-                        Button(action: {
-                            editing = false
-                            onSave()
-                        }, label: {
-                            Text("Save")
-                        })
-                    }
-                }
-            }
-            .onAppear(perform: {
-                newTitleText = deadline.title
-                newDescriptionText = deadline.body ?? ""
+                .onAppear(perform: {
+                    newTitleText = deadline.title
+                    newDescriptionText = deadline.body ?? ""
+                })
             })
         }
     }
@@ -118,6 +130,12 @@ struct DeadlineView: View {
         deadline.title = newTitleText
         deadline.imageData = newDeadlineImage?.toData()
         deadline.body = newDescriptionText
+    }
+    
+    private func onCancel() {
+        newTitleText = deadline.title
+        newDeadlineImage = nil
+        newDescriptionText = deadline.body ?? ""
     }
     
 }
