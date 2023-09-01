@@ -57,6 +57,25 @@ class DeadlineManager: ObservableObject {
         })
     }
     
+    func delete(deadlines: [Deadline]) {
+        for deadline in deadlines {
+            storage.delete(deadline: deadline)
+        }
+        refreshDeadlines()
+    }
+    
+    func setAsFeatured(_ newFeaturedDeadline: Deadline, featured: Bool) {
+        if featured {
+            for deadline in allDeadlines {
+                deadline.featured = false
+            }
+            
+            newFeaturedDeadline.featured = true
+        } else {
+            newFeaturedDeadline.featured = false
+        }
+    }
+    
     func save(deadline: Deadline) {
         storage.insert(deadline: deadline)
         refreshDeadlines()

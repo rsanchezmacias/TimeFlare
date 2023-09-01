@@ -13,11 +13,28 @@ struct DeadlineDashboard: View {
     @EnvironmentObject private var deadlineManager: DeadlineManager
     
     @State private var editButtonVisible: Bool = false
+    @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
     var body: some View {
         NavigationView(content: {
             
             List {
+                // TODO: - Clean up featured deadline, not happy with current implementation
+                if let featured = deadlineManager.featuredDeadline {
+                    
+                    FeaturedDeadline(deadline: featured)
+                    .frame(height: 200)
+                    .listRowInsets(EdgeInsets())
+                    .overlay {
+                        NavigationLink {
+                            DeadlineView(deadline: featured)
+                        } label: {
+                            EmptyView()
+                        }
+                        .opacity(0)   
+                    }
+                }
+                
                 if !deadlineManager.ongoingDeadlines.isEmpty {
                     Section {
                         ForEach(deadlineManager.ongoingDeadlines) { ongoingDeadline in
@@ -35,7 +52,7 @@ struct DeadlineDashboard: View {
                     } header: {
                         HStack(alignment: .center) {
                             Label("Ongoing deadlines", systemImage: "clock")
-                                .font(.headline)
+                            .font(.system(size: 16, weight: .semibold))
                             Spacer()
                         }
                     }
@@ -59,16 +76,15 @@ struct DeadlineDashboard: View {
                     } header: {
                         HStack(alignment: .center) {
                             Label("Expired deadlines", systemImage: "clock.badge.checkmark")
-                                .font(.headline)
+                            .font(.system(size: 16, weight: .semibold))
                             Spacer()
                             Button {
-                                // TODO: - Delete all deadlines, but first show an alert for confirmation
+                                showConfirmationForDeletingOldDeadlines = true
                             } label: {
                                 Label("Delete expired deadlines", systemImage: "trash")
-                                    .labelStyle(.iconOnly)
-                                    .foregroundStyle(Color.red)
+                                .labelStyle(.iconOnly)
+                                .foregroundStyle(Color.red)
                             }
-
                         }
                     }
                 }
@@ -76,6 +92,7 @@ struct DeadlineDashboard: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .overlay {
+                // TODO: - Move no deadlines view to its own component
                 if deadlineManager.allDeadlines.isEmpty {
                     VStack(alignment: .center, content: {
                         HStack(content: {
@@ -86,8 +103,8 @@ struct DeadlineDashboard: View {
                         .font(.headline)
                         
                         Text("Click on \"Add\" to get started and see countdowns for any upcoming deadlines!")
-                            .multilineTextAlignment(.center)
-                            .padding(.bottom, 32)
+                        .multilineTextAlignment(.center)
+                        .padding(.bottom, 32)
                     })
                     .padding()
                     .frame(height: 175)
@@ -96,6 +113,26 @@ struct DeadlineDashboard: View {
                     .offset(y: -150)
                 }
             }
+            .alert(
+                "Are you sure you want to delete all expired deadlines?",
+                isPresented: $showConfirmationForDeletingOldDeadlines,
+                actions: {
+                    Button(role: .destructive) {
+                        deadlineManager.delete(deadlines: deadlineManager.expiredDeadlines)
+                        showConfirmationForDeletingOldDeadlines = false
+                    } label: {
+                        Text("Delete")
+                    }
+                    
+                    Button(role: .cancel) {
+                        showConfirmationForDeletingOldDeadlines = false
+                    } label: {
+                        Text("Cancel")
+                    }
+
+                }
+                // TODO: - Refactor alert into its own view
+            )
             .toolbar {
                 DashboardToolbar(
                     addDeadlineContent: {

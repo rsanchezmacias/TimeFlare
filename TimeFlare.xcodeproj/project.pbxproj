@@ -17,6 +17,7 @@
 		A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */; };
 		A9242A5E2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */; };
 		A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */; };
+		A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -73,6 +74,7 @@
 		A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputTextField.swift; sourceTree = "<group>"; };
 		A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSchemaMigrationPlan.swift; sourceTree = "<group>"; };
 		A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineStorage.swift; sourceTree = "<group>"; };
+		A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedDeadline.swift; sourceTree = "<group>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A98F287F2A99CB6C002585F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				A9A178192A9D326F000B62A7 /* DeadlineDashboard.swift */,
 				A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */,
 				A9B774962A9FE7310037E598 /* DeadlineView.swift */,
+				A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */,
 			);
 			path = Deadline;
 			sourceTree = "<group>";
@@ -350,6 +353,7 @@
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
+				A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */,
 				A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */,
 				A9A178182A9D2ED4000B62A7 /* Data+Extension.swift in Sources */,
 				A9B774A52AA13D5A0037E598 /* Injected.swift in Sources */,
