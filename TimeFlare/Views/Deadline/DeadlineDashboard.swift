@@ -18,7 +18,7 @@ struct DeadlineDashboard: View {
         NavigationView(content: {
             
             List {
-                ForEach(deadlineManager.deadlines) { deadline in
+                ForEach(deadlineManager.allDeadlines) { deadline in
                     if !deadline.title.isEmpty {
                         NavigationLink {
                             DeadlineView(deadline: deadline)
@@ -33,7 +33,7 @@ struct DeadlineDashboard: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .overlay {
-                if deadlineManager.deadlines.isEmpty {
+                if deadlineManager.allDeadlines.isEmpty {
                     VStack(alignment: .center, content: {
                         HStack(content: {
                             Image(systemName: "questionmark.circle")
@@ -61,8 +61,8 @@ struct DeadlineDashboard: View {
                     editButtonVisible: $editButtonVisible
                 )
             }
-            .onChange(of: deadlineManager.deadlines, initial: false) { _, _ in
-                editButtonVisible = !deadlineManager.deadlines.isEmpty
+            .onChange(of: deadlineManager.allDeadlines, initial: false) { _, _ in
+                editButtonVisible = !deadlineManager.allDeadlines.isEmpty
             }
             .onAppear {
                 deadlineManager.refreshDeadlines()

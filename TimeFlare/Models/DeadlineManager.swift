@@ -9,18 +9,40 @@ import Foundation
 import SwiftData
 import SwiftUI
 
+enum SortType {
+    case ascendingDate
+    case descendingDate
+}
+
 class DeadlineManager: ObservableObject {
     
-    @Published var deadlines: [Deadline] = []
-    
     private let storage = InjectedValues[\.deadlineStorage]
+    
+    @Published var featuredDeadline: Deadline?
+    @Published var allDeadlines: [Deadline] = []
+    @Published var ongoingDeadlines: [Deadline] = []
+    @Published var expiredDeadlines: [Deadline] = []
+    
+    private var sortBy: SortType = .ascendingDate
     
     init() {
         storage.setup()
     }
     
     func refreshDeadlines() {
-        deadlines = storage.fetchAll()
+        allDeadlines = storage.fetchAll(sortyBy: \.endDate, reverse: false)
+        
+        featuredDeadline = allDeadlines.first(where: { deadline in
+            deadline.featured
+        })
+        
+        ongoingDeadlines = allDeadlines.filter({ deadline in
+            deadline.endDate > Date.now && deadline != featuredDeadline
+        })
+        
+        expiredDeadlines = allDeadlines.filter({ deadline in
+            deadline.endDate <= Date.now && deadline != featuredDeadline
+        })
     }
     
     func save(deadline: Deadline) {
@@ -35,11 +57,11 @@ class DeadlineManager: ObservableObject {
     
     func deleteDeadlineAt(indexSet: IndexSet) {
         for index in indexSet {
-            if index < 0 || index >= deadlines.count {
+            if index < 0 || index >= allDeadlines.count {
                 continue
             }
             
-            let deadlineToDelete = deadlines[index]
+            let deadlineToDelete = allDeadlines[index]
             storage.delete(deadline: deadlineToDelete)
         }
     }
@@ -47,5 +69,7 @@ class DeadlineManager: ObservableObject {
     func deleteAll() {
         print("Deleting all deadlines for the user...w")
     }
+    
+    // MARK: - Private, helper functions
     
 }

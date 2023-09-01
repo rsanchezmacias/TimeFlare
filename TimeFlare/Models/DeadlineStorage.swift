@@ -5,13 +5,15 @@
 //  Created by Ricardo Sanchez-Macias on 8/31/23.
 //
 
+import Foundation
 import SwiftData
 
 protocol DeadlineStorageProtocol {
     
     func setup()
     
-    func fetchAll() -> [Deadline]
+    func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool) -> [Deadline]
+    
     func insert(deadline: Deadline)
     func delete(deadline: Deadline)
 }
@@ -40,8 +42,9 @@ class DeadlineStorage: DeadlineStorageProtocol {
         modelContext?.delete(deadline)
     }
     
-    func fetchAll() -> [Deadline] {
-        let fetchDescriptor = FetchDescriptor<Deadline>()
+    func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool = false) -> [Deadline] {
+        let sortDescriptor = SortDescriptor<Deadline>(sortyBy, order: reverse ? .reverse : .forward)
+        let fetchDescriptor = FetchDescriptor<Deadline>(sortBy: [sortDescriptor])
         
         do {
             return try modelContext?.fetch(fetchDescriptor) ?? []

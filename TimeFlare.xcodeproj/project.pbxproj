@@ -131,7 +131,6 @@
 			children = (
 				A98F28A12A9D2233002585F5 /* Resources */,
 				A98F28902A9A9F8B002585F5 /* Models */,
-				A98F288F2A9A9F6D002585F5 /* View_Models */,
 				A98F288E2A9A9F68002585F5 /* Views */,
 				A98F288C2A9A9F5E002585F5 /* Util */,
 				A98F28892A9A892B002585F5 /* Info.plist */,
@@ -174,13 +173,6 @@
 				A98F28912A9A9F99002585F5 /* Deadline */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A98F288F2A9A9F6D002585F5 /* View_Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View_Models;
 			sourceTree = "<group>";
 		};
 		A98F28902A9A9F8B002585F5 /* Models */ = {
