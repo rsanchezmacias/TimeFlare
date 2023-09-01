@@ -15,6 +15,8 @@ struct MainContentView: View {
 }
 
 #Preview {
-    MainContentView()
-        .modelContainer(SampleDeadline.sampleDeadlineContainer)
+    let container = SampleDeadline.sampleDeadlineContainer
+    let manager = DeadlineManager(container: container)
+    return MainContentView()
+        .environmentObject(manager)
 }

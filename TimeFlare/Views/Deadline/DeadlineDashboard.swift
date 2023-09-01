@@ -18,18 +18,61 @@ struct DeadlineDashboard: View {
         NavigationView(content: {
             
             List {
-                ForEach(deadlineManager.allDeadlines) { deadline in
-                    if !deadline.title.isEmpty {
-                        NavigationLink {
-                            DeadlineView(deadline: deadline)
-                        } label: {
-                            DeadlineRow(deadline: deadline)
+                if !deadlineManager.ongoingDeadlines.isEmpty {
+                    Section {
+                        ForEach(deadlineManager.ongoingDeadlines) { ongoingDeadline in
+                            if !ongoingDeadline.title.isEmpty {
+                                NavigationLink {
+                                    DeadlineView(deadline: ongoingDeadline)
+                                } label: {
+                                    DeadlineRow(deadline: ongoingDeadline)
+                                }
+                            }
+                        }
+                        .onDelete { indexSet in
+                            deadlineManager.deleteDeadlineAt(indexSet: indexSet)
+                        }
+                    } header: {
+                        HStack(alignment: .center) {
+                            Label("Ongoing deadlines", systemImage: "clock")
+                                .font(.headline)
+                            Spacer()
                         }
                     }
                 }
-                .onDelete(perform: { indexSet in
-                    deadlineManager.deleteDeadlineAt(indexSet: indexSet)
-                })
+                
+                if !deadlineManager.expiredDeadlines.isEmpty {
+                    // TODO: - Refactor section into view
+                    Section {
+                        ForEach(deadlineManager.expiredDeadlines) { expiredDeadline in
+                            if !expiredDeadline.title.isEmpty {
+                                NavigationLink {
+                                    DeadlineView(deadline: expiredDeadline)
+                                } label: {
+                                    DeadlineRow(deadline: expiredDeadline)
+                                }
+                            }
+                        }
+                        .onDelete { indexSet in
+                            deadlineManager.deleteDeadlineAt(indexSet: indexSet)
+                        }
+                    } header: {
+                        HStack(alignment: .center) {
+                            Label("Expired deadlines", systemImage: "clock.badge.checkmark")
+                                .font(.headline)
+                            Spacer()
+                            Button {
+                                // TODO: - Delete all deadlines, but first show an alert for confirmation
+                            } label: {
+                                Label("Delete expired deadlines", systemImage: "trash")
+                                    .labelStyle(.iconOnly)
+                                    .foregroundStyle(Color.red)
+                            }
+
+                        }
+                    }
+                }
+                
             }
             .navigationBarTitleDisplayMode(.inline)
             .overlay {
@@ -75,6 +118,9 @@ struct DeadlineDashboard: View {
 
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
+    let manager = DeadlineManager(container: container)
+    manager.refreshDeadlines()
+    
     return DeadlineDashboard()
-        .modelContainer(container)
+        .environmentObject(manager)
 }

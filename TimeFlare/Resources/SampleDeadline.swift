@@ -35,13 +35,7 @@ class SampleDeadline {
     
     static var sampleDeadlineContainer: ModelContainer {
         do {
-            let container = try ModelContainer(for: Deadline.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
-            
-            for deadline in SampleDeadline.sampleDeadlines {
-                container.mainContext.insert(deadline)
-            }
-            
-            return container
+            return try ModelContainer(for: Deadline.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
         } catch {
             fatalError("Failed to create deadline sample container")
         }

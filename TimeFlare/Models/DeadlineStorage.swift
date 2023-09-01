@@ -34,6 +34,17 @@ class DeadlineStorage: DeadlineStorageProtocol {
         }
     }
     
+    @MainActor
+    func setup(modelContainer: ModelContainer) {
+        self.modelContainer = modelContainer
+        
+        modelContext = ModelContext(modelContainer)
+        
+        for deadline in SampleDeadline.sampleDeadlines {
+            modelContext?.insert(deadline)
+        }
+    }
+    
     func insert(deadline: Deadline) {
         modelContext?.insert(deadline)
     }

@@ -16,7 +16,7 @@ enum SortType {
 
 class DeadlineManager: ObservableObject {
     
-    private let storage = InjectedValues[\.deadlineStorage]
+    @Injected(\.deadlineStorage) var storage
     
     @Published var featuredDeadline: Deadline?
     @Published var allDeadlines: [Deadline] = []
@@ -27,6 +27,18 @@ class DeadlineManager: ObservableObject {
     
     init() {
         storage.setup()
+    }
+    
+    init(container: ModelContainer) {
+        let deadlineStorage = DeadlineStorage()
+        Task {
+            await deadlineStorage.setup(modelContainer: container)
+            InjectedValues[\.deadlineStorage] = deadlineStorage
+            
+            await MainActor.run {
+                self.refreshDeadlines()
+            }
+        }
     }
     
     func refreshDeadlines() {
