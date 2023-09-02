@@ -9,9 +9,18 @@ import Foundation
 import SwiftData
 import SwiftUI
 
-enum SortType {
+enum SortType: Int, CaseIterable {
     case ascendingDate
     case descendingDate
+    
+    var displayText: String {
+        switch self {
+        case .ascendingDate:
+            return "Oldest date first"
+        case .descendingDate:
+            return "Most recent date first"
+        }
+    }
 }
 
 class DeadlineManager: ObservableObject {
@@ -23,7 +32,7 @@ class DeadlineManager: ObservableObject {
     @Published var ongoingDeadlines: [Deadline] = []
     @Published var expiredDeadlines: [Deadline] = []
     
-    private var sortBy: SortType = .ascendingDate
+    @Published var sortBy: SortType = .ascendingDate
     
     init() {
         storage.setup()
@@ -42,18 +51,18 @@ class DeadlineManager: ObservableObject {
     }
     
     func refreshDeadlines() {
-        allDeadlines = storage.fetchAll(sortyBy: \.endDate, reverse: false)
+        allDeadlines = storage.fetchAll(sortyBy: \.endDate, reverse: sortBy == .ascendingDate)
         
         featuredDeadline = allDeadlines.first(where: { deadline in
             deadline.featured
         })
         
         ongoingDeadlines = allDeadlines.filter({ deadline in
-            deadline.endDate > Date.now && deadline != featuredDeadline
+            deadline.endDate > Date.now
         })
         
         expiredDeadlines = allDeadlines.filter({ deadline in
-            deadline.endDate <= Date.now && deadline != featuredDeadline
+            deadline.endDate <= Date.now
         })
     }
     
@@ -61,6 +70,11 @@ class DeadlineManager: ObservableObject {
         for deadline in deadlines {
             storage.delete(deadline: deadline)
         }
+        refreshDeadlines()
+    }
+    
+    func setSortPreference(sortBy: SortType) {
+        self.sortBy = sortBy
         refreshDeadlines()
     }
     
@@ -95,6 +109,9 @@ class DeadlineManager: ObservableObject {
             let deadlineToDelete = allDeadlines[index]
             storage.delete(deadline: deadlineToDelete)
         }
+        
+        storage.commit()
+        refreshDeadlines()
     }
     
     func deleteAll() {

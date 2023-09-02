@@ -16,6 +16,8 @@ protocol DeadlineStorageProtocol {
     
     func insert(deadline: Deadline)
     func delete(deadline: Deadline)
+    
+    func commit()
 }
 
 class DeadlineStorage: DeadlineStorageProtocol {
@@ -51,6 +53,14 @@ class DeadlineStorage: DeadlineStorageProtocol {
     
     func delete(deadline: Deadline) {
         modelContext?.delete(deadline)
+    }
+    
+    func commit() {
+        do {
+            try modelContext?.save()
+        } catch {
+            print("[DeadlineStorage] Failed to save changes")
+        }
     }
     
     func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool = false) -> [Deadline] {
