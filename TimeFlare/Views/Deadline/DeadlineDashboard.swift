@@ -92,25 +92,9 @@ struct DeadlineDashboard: View {
             }
             .navigationBarTitleDisplayMode(.inline)
             .overlay {
-                // TODO: - Move no deadlines view to its own component
                 if deadlineManager.allDeadlines.isEmpty {
-                    VStack(alignment: .center, content: {
-                        HStack(content: {
-                            Image(systemName: "questionmark.circle")
-                            Text("There are no deadlines to see...")
-                        })
-                        .padding()
-                        .font(.headline)
-                        
-                        Text("Click on \"Add\" to get started and see countdowns for any upcoming deadlines!")
-                        .multilineTextAlignment(.center)
-                        .padding(.bottom, 32)
-                    })
-                    .padding()
-                    .frame(height: 175)
-                    .background(Color.gray.opacity(0.40))
-                    .clipShape(.rect(cornerRadius: 16))
-                    .offset(y: -150)
+                    EmptyDeadlinesView()
+                        .offset(y: -150)
                 }
             }
             .alert(
