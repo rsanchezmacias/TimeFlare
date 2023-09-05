@@ -66,5 +66,5 @@ struct CountdownDateTimer: View {
 }
 
 #Preview {
-    CountdownDateTimer(endDate: Date.now + TimeInterval(7565))
+    CountdownDateTimer(endDate: Date.now + TimeInterval(75650000))
 }

@@ -89,7 +89,7 @@ extension NewDeadlineForm {
 }
 
 #Preview {
-    return NavigationView {
+    return NavigationStack {
         NewDeadlineForm()
     }
 }

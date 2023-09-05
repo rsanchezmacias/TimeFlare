@@ -10,10 +10,14 @@ import SwiftData
 
 struct DashboardToolbar<Content: View>: ToolbarContent {
     
+    @EnvironmentObject private var deadlineManager: DeadlineManager
+    
     @ViewBuilder var addDeadlineContent: () -> Content
     @Environment(\.editMode) private var editMode
     
     @Binding var editButtonVisible: Bool
+    
+    @State private var pickingSortType: SortType = .ascendingDate
     
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
@@ -32,6 +36,18 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
         ToolbarItemGroup(placement: .topBarTrailing) {
             LazyHStack(alignment: .center) {
                 
+                if editMode?.wrappedValue == .inactive {
+                    Menu("Sort") {
+                        Picker(selection: $pickingSortType) {
+                            ForEach(SortType.allCases, id: \.self) { sortType in
+                                Text(sortType.displayText).tag(sortType.rawValue)
+                            }
+                        } label: {
+                            Label("Sort", systemImage: "arrow.up.arrow.down")
+                        }
+                    }
+                }
+                
                 if editButtonVisible {
                     EditButton()
                 }
@@ -44,18 +60,28 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
                     }
                 }
             }
+            .animation(.none, value: UUID())
+            .onAppear(perform: {
+                pickingSortType = deadlineManager.sortBy
+            })
+            .onChange(of: pickingSortType, initial: false) {
+                deadlineManager.setSortPreference(sortBy: pickingSortType)
+            }
+            
         }
     }
     
 }
 
 #Preview {
-    return NavigationView(content: {
+    let deadlineManager = DeadlineManager(container: SampleDeadline.sampleDeadlineContainer)
+    return NavigationStack(root: {
         Text("PlaceHolder")
             .toolbar(content: {
                 DashboardToolbar(addDeadlineContent: {
                     Text("Add")
                 }, editButtonVisible: .constant(true))
             })
+            .environmentObject(deadlineManager)
     })
 }

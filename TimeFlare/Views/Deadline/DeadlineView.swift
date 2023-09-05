@@ -11,6 +11,8 @@ struct DeadlineView: View {
     
     var deadline: Deadline
     
+    @EnvironmentObject private var deadlineManager: DeadlineManager
+    
     @State private var editing: Bool = false
     
     @State private var newTitleText: String = ""
@@ -64,7 +66,10 @@ struct DeadlineView: View {
                                         .font(.system(size: 18, weight: .bold))
                                     Spacer()
                                     Button {
-                                        deadline.featured.toggle()
+                                        deadlineManager.setAsFeatured(
+                                            deadline,
+                                            featured: !deadline.featured
+                                        )
                                     } label: {
                                         Label("Set as featured deadline", systemImage: deadline.featured ? "star.fill" : "star" )
                                             .labelStyle(.iconOnly)
@@ -109,7 +114,6 @@ struct DeadlineView: View {
                             }
                         }
                     }
-                    
                     Spacer()
                 }
                 .padding([.leading, .trailing], 32)
@@ -185,7 +189,7 @@ struct DeadlineView: View {
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
     let deadlines = SampleDeadline.sampleDeadlines
-    return NavigationView(content: {
+    return NavigationStack(root: {
         DeadlineView(deadline: deadlines[0])
             .modelContainer(container)
     })

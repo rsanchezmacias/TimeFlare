@@ -10,55 +10,62 @@ import SwiftData
 
 protocol DeadlineStorageProtocol {
     
-    func setup()
+    func setup() async
     
-    func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool) -> [Deadline]
+    func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool) async -> [Deadline]
     
-    func insert(deadline: Deadline)
-    func delete(deadline: Deadline)
+    func insert(deadline: Deadline) async
+    func delete(deadline: Deadline) async
+    
+    func commit() async
 }
 
 class DeadlineStorage: DeadlineStorageProtocol {
     
     private var modelContainer: ModelContainer?
-    private var modelContext: ModelContext?
     
     func setup() {
         self.modelContainer = try? ModelContainer(
             for: Deadline.self,
             migrationPlan: DeadlineSchemaMigrationPlan.self
         )
-        
-        if let modelContainer = modelContainer {
-            modelContext = ModelContext(modelContainer)
-        }
     }
     
     @MainActor
     func setup(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
         
-        modelContext = ModelContext(modelContainer)
-        
         for deadline in SampleDeadline.sampleDeadlines {
-            modelContext?.insert(deadline)
+            modelContainer.mainContext.insert(deadline)
         }
     }
     
+    @MainActor
     func insert(deadline: Deadline) {
-        modelContext?.insert(deadline)
+        modelContainer?.mainContext.insert(deadline)
     }
     
+    @MainActor
     func delete(deadline: Deadline) {
-        modelContext?.delete(deadline)
+        modelContainer?.mainContext.delete(deadline)
     }
     
+    @MainActor
+    func commit() {
+        do {
+            try modelContainer?.mainContext.save()
+        } catch {
+            print("[DeadlineStorage] Failed to save changes")
+        }
+    }
+    
+    @MainActor
     func fetchAll<T: Comparable>(sortyBy: KeyPath<Deadline, T>, reverse: Bool = false) -> [Deadline] {
         let sortDescriptor = SortDescriptor<Deadline>(sortyBy, order: reverse ? .reverse : .forward)
         let fetchDescriptor = FetchDescriptor<Deadline>(sortBy: [sortDescriptor])
         
         do {
-            return try modelContext?.fetch(fetchDescriptor) ?? []
+            return try modelContainer?.mainContext.fetch(fetchDescriptor) ?? []
         } catch {
             return []
         }
