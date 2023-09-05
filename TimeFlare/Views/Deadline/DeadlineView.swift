@@ -114,7 +114,6 @@ struct DeadlineView: View {
                             }
                         }
                     }
-                    
                     Spacer()
                 }
                 .padding([.leading, .trailing], 32)
