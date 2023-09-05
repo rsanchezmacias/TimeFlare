@@ -75,7 +75,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
 
 #Preview {
     let deadlineManager = DeadlineManager(container: SampleDeadline.sampleDeadlineContainer)
-    return NavigationView(content: {
+    return NavigationStack(root: {
         Text("PlaceHolder")
             .toolbar(content: {
                 DashboardToolbar(addDeadlineContent: {

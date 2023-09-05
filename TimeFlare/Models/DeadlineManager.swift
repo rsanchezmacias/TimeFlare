@@ -35,42 +35,51 @@ class DeadlineManager: ObservableObject {
     @Published var sortBy: SortType = .ascendingDate
     
     init() {
-        storage.setup()
+        Task {
+            await storage.setup()
+        }
     }
     
     init(container: ModelContainer) {
-        let deadlineStorage = DeadlineStorage()
         Task {
+            let deadlineStorage = DeadlineStorage()
+            
             await deadlineStorage.setup(modelContainer: container)
             InjectedValues[\.deadlineStorage] = deadlineStorage
             
-            await MainActor.run {
-                self.refreshDeadlines()
-            }
+            refreshDeadlines()
         }
     }
     
     func refreshDeadlines() {
-        allDeadlines = storage.fetchAll(sortyBy: \.endDate, reverse: sortBy == .ascendingDate)
-        
-        featuredDeadline = allDeadlines.first(where: { deadline in
-            deadline.featured
-        })
-        
-        ongoingDeadlines = allDeadlines.filter({ deadline in
-            deadline.endDate > Date.now
-        })
-        
-        expiredDeadlines = allDeadlines.filter({ deadline in
-            deadline.endDate <= Date.now
-        })
+        Task {
+            let fetchedDeadlines = await storage.fetchAll(sortyBy: \.endDate, reverse: sortBy == .ascendingDate)
+            
+            await MainActor.run {
+                self.allDeadlines = fetchedDeadlines
+                
+                featuredDeadline = allDeadlines.first(where: { deadline in
+                    deadline.featured
+                })
+                
+                ongoingDeadlines = allDeadlines.filter({ deadline in
+                    deadline.endDate > Date.now
+                })
+                
+                expiredDeadlines = allDeadlines.filter({ deadline in
+                    deadline.endDate <= Date.now
+                })
+            }
+        }
     }
     
     func delete(deadlines: [Deadline]) {
-        for deadline in deadlines {
-            storage.delete(deadline: deadline)
+        Task {
+            for deadline in deadlines {
+                await storage.delete(deadline: deadline)
+            }
+            refreshDeadlines()
         }
-        refreshDeadlines()
     }
     
     func setSortPreference(sortBy: SortType) {
@@ -91,27 +100,28 @@ class DeadlineManager: ObservableObject {
     }
     
     func save(deadline: Deadline) {
-        storage.insert(deadline: deadline)
-        refreshDeadlines()
+        Task {
+            await storage.insert(deadline: deadline)
+            refreshDeadlines()
+        }
     }
     
     func delete(deadline: Deadline) {
-        storage.delete(deadline: deadline)
-        refreshDeadlines()
+        Task {
+            await storage.delete(deadline: deadline)
+            refreshDeadlines()
+        }
     }
     
-    func deleteDeadlineAt(indexSet: IndexSet) {
+    func deleteDeadlineInIndexSetFromList(indexSet: IndexSet, deadlines: [Deadline]) {
         for index in indexSet {
-            if index < 0 || index >= allDeadlines.count {
+            if index < 0 || index >= deadlines.count {
                 continue
             }
             
-            let deadlineToDelete = allDeadlines[index]
-            storage.delete(deadline: deadlineToDelete)
+            let deadlineToDelete = deadlines[index]
+            delete(deadline: deadlineToDelete)
         }
-        
-        storage.commit()
-        refreshDeadlines()
     }
     
     func deleteAll() {

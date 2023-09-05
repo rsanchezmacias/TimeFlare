@@ -16,7 +16,7 @@ struct DeadlineDashboard: View {
     @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
     var body: some View {
-        NavigationView(content: {
+        NavigationStack(root: {
             
             List {
                 // TODO: - Clean up featured deadline, not happy with current implementation
@@ -47,7 +47,10 @@ struct DeadlineDashboard: View {
                             }
                         }
                         .onDelete { indexSet in
-                            deadlineManager.deleteDeadlineAt(indexSet: indexSet)
+                            deadlineManager.deleteDeadlineInIndexSetFromList(
+                                indexSet: indexSet,
+                                deadlines: deadlineManager.ongoingDeadlines
+                            )
                         }
                     } header: {
                         HStack(alignment: .center) {
@@ -71,7 +74,10 @@ struct DeadlineDashboard: View {
                             }
                         }
                         .onDelete { indexSet in
-                            deadlineManager.deleteDeadlineAt(indexSet: indexSet)
+                            deadlineManager.deleteDeadlineInIndexSetFromList(
+                                indexSet: indexSet,
+                                deadlines: deadlineManager.expiredDeadlines
+                            )
                         }
                     } header: {
                         HStack(alignment: .center) {

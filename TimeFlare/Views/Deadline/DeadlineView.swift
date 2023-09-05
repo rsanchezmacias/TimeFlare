@@ -190,7 +190,7 @@ struct DeadlineView: View {
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
     let deadlines = SampleDeadline.sampleDeadlines
-    return NavigationView(content: {
+    return NavigationStack(root: {
         DeadlineView(deadline: deadlines[0])
             .modelContainer(container)
     })
