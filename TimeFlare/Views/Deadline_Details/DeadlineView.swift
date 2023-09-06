@@ -17,38 +17,27 @@ struct DeadlineView: View {
     
     @State private var newTitleText: String = ""
     @State private var newDescriptionText: String = ""
-    @State private var newDeadlineImage: UIImage?
+    @State private var newDeadlineUIImage: UIImage?
     @State private var newDeadlineDate: Date = Date.now
+    
+    private var newDeadlineImage: Image? {
+        guard let newDeadlineUIImage = newDeadlineUIImage else { return nil }
+        return Image(uiImage: newDeadlineUIImage)
+    }
     
     var body: some View {
         GeometryReader(content: { geometry in
             ScrollView {
                 VStack(alignment: .leading, spacing: 24) {
-                    HStack {
-                        Spacer()
-                        Rectangle()
-                            .fill(Color.clear)
-                            .overlay {
-                                if let newDeadlineImage = newDeadlineImage {
-                                    Image(uiImage: newDeadlineImage)
-                                        .deadlineThumbnail()
-                                } else {
-                                    if let deadlineImage = deadline.image {
-                                        deadlineImage
-                                            .deadlineThumbnail()
-                                    } else {
-                                        DefaultImageThumbnail(size: geometry.size.width * 0.75)
-                                    }
-                                }
-                            }
+                    
+                    CenteredHStack {
+                        ImageThumbnail(image: newDeadlineImage ?? deadline.image)
+                            .frame(width: geometry.size.width * 0.75, height: geometry.size.width * 0.75)
                             .overlay {
                                 if editing {
-                                    ImagePickerView(selectedUIImage: $newDeadlineImage)
+                                    ImagePickerView(selectedUIImage: $newDeadlineUIImage)
                                 }
                             }
-                            .aspectRatio(1, contentMode: .fill)
-                            .frame(width: geometry.size.width * 0.75)
-                        Spacer()
                     }
                     
                     VStack(alignment: .leading, spacing: editing ? 16 : 8) {
@@ -166,14 +155,14 @@ struct DeadlineView: View {
         deadline.body = newDescriptionText
         deadline.endDate = newDeadlineDate
         
-        if newDeadlineImage != nil {
-            deadline.imageData = newDeadlineImage?.toData()
+        if newDeadlineUIImage != nil {
+            deadline.imageData = newDeadlineUIImage?.toData()
         }
     }
     
     private func onCancel() {
         newTitleText = deadline.title
-        newDeadlineImage = nil
+        newDeadlineUIImage = nil
         newDescriptionText = deadline.body ?? ""
         newDeadlineDate = deadline.endDate
     }

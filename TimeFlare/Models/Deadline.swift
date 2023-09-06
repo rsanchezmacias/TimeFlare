@@ -33,6 +33,11 @@ enum DeadlineSchemaV1: VersionedSchema {
             return imageData?.toImage()
         }
         
+        @Transient var uiImage: UIImage? {
+            guard let data = imageData else { return nil }
+            return UIImage(data: data)
+        }
+        
         init(
             title: String,
             body: String,
@@ -82,6 +87,11 @@ enum DeadlineSchemaV2: VersionedSchema {
         
         @Transient var image: Image? {
             return imageData?.toImage()
+        }
+        
+        @Transient var uiImage: UIImage? {
+            guard let data = imageData else { return nil }
+            return UIImage(data: data)
         }
         
         init(

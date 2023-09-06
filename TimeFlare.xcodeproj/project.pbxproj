@@ -22,6 +22,8 @@
 		A96D99D22AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */; };
 		A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D32AA7D1E900D30AD0 /* View+Extension.swift */; };
 		A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D52AA7DD9600D30AD0 /* DeadlineListSection.swift */; };
+		A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D82AA8142400D30AD0 /* ImageThumbnail.swift */; };
+		A96D99DB2AA8210F00D30AD0 /* CenteredHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -40,7 +42,6 @@
 		A9B7749C2AA0558A0037E598 /* CountdownDateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */; };
 		A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
 		A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749F2AA05A330037E598 /* Int+Extension.swift */; };
-		A9B774A22AA113480037E598 /* DefaultImageThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774A12AA113480037E598 /* DefaultImageThumbnail.swift */; };
 		A9B774A52AA13D5A0037E598 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774A42AA13D5A0037E598 /* Injected.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,8 @@
 		A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryWithSecondaryView.swift; sourceTree = "<group>"; };
 		A96D99D32AA7D1E900D30AD0 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		A96D99D52AA7DD9600D30AD0 /* DeadlineListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListSection.swift; sourceTree = "<group>"; };
+		A96D99D82AA8142400D30AD0 /* ImageThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThumbnail.swift; sourceTree = "<group>"; };
+		A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredHStack.swift; sourceTree = "<group>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A98F287F2A99CB6C002585F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +106,6 @@
 		A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownDateTimer.swift; sourceTree = "<group>"; };
 		A9B7749D2AA056900037E598 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		A9B7749F2AA05A330037E598 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
-		A9B774A12AA113480037E598 /* DefaultImageThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageThumbnail.swift; sourceTree = "<group>"; };
 		A9B774A42AA13D5A0037E598 /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				A9200BA42A9E796C0017C9BA /* ImagePickerView.swift */,
 				A9200BA92A9EA6340017C9BA /* ImagePickerViewController.swift */,
 				A9200BAB2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift */,
+				A96D99D82AA8142400D30AD0 /* ImageThumbnail.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -182,6 +185,7 @@
 				A98F28A12A9D2233002585F5 /* Resources */,
 				A98F28902A9A9F8B002585F5 /* Models */,
 				A98F288E2A9A9F68002585F5 /* Views */,
+				A9A1781B2A9D3364000B62A7 /* Components */,
 				A98F288C2A9A9F5E002585F5 /* Util */,
 				A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */,
 				A98F28892A9A892B002585F5 /* Info.plist */,
@@ -221,7 +225,6 @@
 				A98F287D2A99CB67002585F5 /* MainContentView.swift */,
 				A96D99CD2AA7C0C900D30AD0 /* Deadline_Dashboard */,
 				A98F28912A9A9F99002585F5 /* Deadline_Details */,
-				A9A1781B2A9D3364000B62A7 /* Components */,
 				A96D99CE2AA7C37200D30AD0 /* Featured_Deadline */,
 				A9200BA82A9EA60A0017C9BA /* ImagePicker */,
 			);
@@ -262,8 +265,8 @@
 				A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */,
 				A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */,
 				A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */,
-				A9B774A12AA113480037E598 /* DefaultImageThumbnail.swift */,
 				A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */,
+				A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */,
 				A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
+				A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
 				A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */,
 				A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */,
@@ -400,7 +404,6 @@
 				A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */,
 				A98F28952A9A9FD0002585F5 /* Deadline.swift in Sources */,
 				A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */,
-				A9B774A22AA113480037E598 /* DefaultImageThumbnail.swift in Sources */,
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
@@ -409,6 +412,7 @@
 				A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */,
 				A9A178182A9D2ED4000B62A7 /* Data+Extension.swift in Sources */,
 				A9B774A52AA13D5A0037E598 /* Injected.swift in Sources */,
+				A96D99DB2AA8210F00D30AD0 /* CenteredHStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
