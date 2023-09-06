@@ -15,15 +15,8 @@ struct DeadlineRow: View {
     var body: some View {
         HStack(alignment: .center, spacing: 16, content: {
             
-            if let image = deadline.image {
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 70)
-                    .clipShape(.rect(cornerRadius: 8))
-            } else {
-                DefaultImageThumbnail(size: 70)
-            }
+            ImageThumbnail(image: deadline.image)
+                .frame(width: 70, height: 70)
             
             VStack(alignment: .leading, spacing: 4, content: {
                 Text(deadline.title)
@@ -42,6 +35,6 @@ struct DeadlineRow: View {
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
     
-    return DeadlineRow(deadline: SampleDeadline.sampleDeadlines[0])
+    return DeadlineRow(deadline: SampleDeadline.sampleDeadlines[2])
         .modelContainer(container)
 }

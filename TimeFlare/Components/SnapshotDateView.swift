@@ -1,23 +1,21 @@
 //
-//  CountdownTimer.swift
+//  SnapshotDateView.swift
 //  TimeFlare
 //
-//  Created by Ricardo Sanchez-Macias on 8/30/23.
+//  Created by Ricardo Sanchez-Macias on 9/5/23.
 //
 
 import SwiftUI
 
-struct CountdownDateTimer: View {
+struct SnapshotDateView: View {
     
     var endDate: Date
     
-    @State var secondsText: String?
-    @State var minutesText: String?
-    @State var hoursText: String?
-    @State var daysText: String?
-    @State var yearsText: String?
-    
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var secondsText: String?
+    @State private var minutesText: String?
+    @State private var hoursText: String?
+    @State private var daysText: String?
+    @State private var yearsText: String?
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -41,15 +39,12 @@ struct CountdownDateTimer: View {
                 Text(yearsText)
             }
         }
-        .onReceive(timer, perform: { _ in
-            onTimerFired()
-        })
         .onAppear(perform: {
-            onTimerFired()
+            update()
         })
     }
     
-    private func onTimerFired() {
+    func update() {
         let formattedDateComponets = DateUtil.formattedDateComponentsFrom(
             Date.now,
             to: endDate,
@@ -57,14 +52,17 @@ struct CountdownDateTimer: View {
             filterMissingComponents: true
         )
         
-        secondsText = formattedDateComponets[.seconds]
-        minutesText = formattedDateComponets[.minutes]
-        hoursText = formattedDateComponets[.hours]
-        daysText = formattedDateComponets[.days]
-        yearsText = formattedDateComponets[.years]
+        withAnimation {
+            secondsText = formattedDateComponets[.seconds]
+            minutesText = formattedDateComponets[.minutes]
+            hoursText = formattedDateComponets[.hours]
+            daysText = formattedDateComponets[.days]
+            yearsText = formattedDateComponets[.years]
+        }
     }
+    
 }
 
 #Preview {
-    CountdownDateTimer(endDate: Date.now + TimeInterval(75650000))
+    SnapshotDateView(endDate: Date.now + TimeInterval(75650000))
 }

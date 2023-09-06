@@ -27,7 +27,6 @@ struct InputTextField: View {
                 Text(textFieldPlaceholderText)
             }
             .font(.system(size: 14))
-            .autocorrectionDisabled()
             .textInputAutocapitalization(nil)
             .focused($focused)
             .toolbar {

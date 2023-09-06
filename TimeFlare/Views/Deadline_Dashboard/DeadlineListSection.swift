@@ -33,7 +33,7 @@ struct DeadlineListSection<HeaderRightContent: View>: View {
             ForEach(deadlines) { deadline in
                 if !deadline.title.isEmpty {
                     NavigationLink {
-                        DeadlineView(deadline: deadline)
+                        DeadlineDetails(deadline: deadline)
                     } label: {
                         DeadlineRow(deadline: deadline)
                     }

@@ -23,11 +23,10 @@ struct NewDeadlineForm: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 40) {
-                HStack {
-                    Spacer()
+                
+                CenteredHStack {
                     ImagePickerView(selectedUIImage: $deadlineImage)
                         .padding([.top], 32)
-                    Spacer()
                 }
                 
                 VStack(alignment: .trailing, spacing: 16, content: {

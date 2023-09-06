@@ -53,35 +53,41 @@ class DateUtil {
         _ startingDate: Date,
         to endingDate: Date,
         components: [DateComponent],
-        filterMissingComponents: Bool = false
+        filterMissingComponents: Bool = false,
+        removeNegativeSign: Bool = true
     ) -> [DateComponent: String] {
         var formattedDateComponents: [DateComponent: String] = [:]
         var dateComponentToValueMap: [DateComponent: Int] = [:]
         let dateComponents = Self.allDateComponentsFrom(startingDate, to: endingDate)
         
         if let seconds = dateComponents.second, components.contains(.seconds) {
-            dateComponentToValueMap[.seconds] = seconds
-            formattedDateComponents[.seconds] = "\(seconds) \(seconds.noun(singular: "second", plural: "seconds"))"
+            let secondsToDisplay = removeNegativeSign ? abs(seconds): seconds
+            dateComponentToValueMap[.seconds] = secondsToDisplay
+            formattedDateComponents[.seconds] = "\(secondsToDisplay) \(secondsToDisplay.noun(singular: "second", plural: "seconds"))"
         }
         
         if let minutes = dateComponents.minute, components.contains(.minutes) {
-            dateComponentToValueMap[.minutes] = minutes
-            formattedDateComponents[.minutes] = "\(minutes) \(minutes.noun(singular: "minute", plural: "minutes"))"
+            let minutesToDisplay = removeNegativeSign ? abs(minutes): minutes
+            dateComponentToValueMap[.minutes] = minutesToDisplay
+            formattedDateComponents[.minutes] = "\(minutesToDisplay) \(minutesToDisplay.noun(singular: "minute", plural: "minutes"))"
         }
         
         if let hours = dateComponents.hour, components.contains(.hours) {
-            dateComponentToValueMap[.hours] = hours
-            formattedDateComponents[.hours] = "\(hours) \(hours.noun(singular: "hour", plural: "hours"))"
+            let hoursToDisplay = removeNegativeSign ? abs(hours): hours
+            dateComponentToValueMap[.hours] = hoursToDisplay
+            formattedDateComponents[.hours] = "\(hoursToDisplay) \(hoursToDisplay.noun(singular: "hour", plural: "hours"))"
         }
         
         if let days = dateComponents.day, components.contains(.days) {
-            dateComponentToValueMap[.days] = days
-            formattedDateComponents[.days] = "\(days) \(days.noun(singular: "day", plural: "days"))"
+            let daysToDisplay = removeNegativeSign ? abs(days): days
+            dateComponentToValueMap[.days] = daysToDisplay
+            formattedDateComponents[.days] = "\(daysToDisplay) \(daysToDisplay.noun(singular: "day", plural: "days"))"
         }
         
         if let years = dateComponents.year, components.contains(.years) {
-            dateComponentToValueMap[.years] = years
-            formattedDateComponents[.years] = "\(years) \(years.noun(singular: "year", plural: "years"))"
+            let yearsToDisplay = removeNegativeSign ? abs(years): years
+            dateComponentToValueMap[.years] = yearsToDisplay
+            formattedDateComponents[.years] = "\(yearsToDisplay) \(yearsToDisplay.noun(singular: "year", plural: "years"))"
         }
         
         if filterMissingComponents {
