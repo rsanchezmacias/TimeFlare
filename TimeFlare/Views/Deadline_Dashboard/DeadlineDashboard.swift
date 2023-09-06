@@ -24,7 +24,7 @@ struct DeadlineDashboard: View {
                     FeaturedDeadline(deadline: featured)
                     .listRowInsets(EdgeInsets())
                     .overlayWithNavigationTo {
-                        DeadlineView(deadline: featured)
+                        DeadlineDetails(deadline: featured)
                     }
                 }
                 

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DeadlineView: View {
+struct DeadlineDetails: View {
     
     var deadline: Deadline
     
@@ -41,68 +41,48 @@ struct DeadlineView: View {
                     }
                     
                     VStack(alignment: .leading, spacing: editing ? 16 : 8) {
-                        VStack {
-                            if editing {
-                                InputTextField(
-                                    currentInput: $newTitleText,
-                                    topLabelText: "Updated Title",
-                                    textFieldPlaceholderText: "Deadline title...",
-                                    axis: .horizontal
-                                )
-                            } else {
-                                HStack {
-                                    Text(deadline.title)
-                                        .font(.system(size: 18, weight: .bold))
-                                    Spacer()
-                                    Button {
-                                        deadlineManager.setAsFeatured(
-                                            deadline,
-                                            featured: !deadline.featured
-                                        )
-                                    } label: {
-                                        Label("Set as featured deadline", systemImage: deadline.featured ? "star.fill" : "star" )
-                                            .labelStyle(.iconOnly)
-                                            .foregroundStyle(Color.yellow)
-                                    }
-
-                                }
-                            }
-                        }
                         
-                        VStack {
-                            if editing {
-                                InputTextField(
-                                    currentInput: $newDescriptionText,
-                                    topLabelText: "Updated Description",
-                                    textFieldPlaceholderText: "What deadline is approaching?",
-                                    axis: .vertical
+                        PrimaryWithSecondaryView(primary: {
+                            InputTextField(
+                                currentInput: $newTitleText,
+                                topLabelText: "Updated Title",
+                                textFieldPlaceholderText: "Deadline title...",
+                                axis: .horizontal
+                            )
+                        }, secondary: {
+                            DeadlineDetailsTitle(deadline: deadline) {
+                                deadlineManager.setAsFeatured(
+                                    deadline,
+                                    featured: !deadline.featured
                                 )
-                            } else if let body = deadline.body {
+                            }
+                        }, showPrimary: editing)
+                        
+                        PrimaryWithSecondaryView(primary: {
+                            InputTextField(
+                                currentInput: $newDescriptionText,
+                                topLabelText: "Updated Description",
+                                textFieldPlaceholderText: "What deadline is approaching?",
+                                axis: .vertical
+                            )
+                        }, secondary: {
+                            if let body = deadline.body {
                                 Text(body)
                                     .font(.system(size: 14))
                             }
-                        }
+                        }, showPrimary: editing)
                     }
                     
-                    VStack(alignment: .leading, spacing: 8) {
-                        if editing {
-                            InputDatePicker(
-                                date: $newDeadlineDate,
-                                titleLabel: "What is the new deadline?",
-                                subtitleLabel: "Updated date:"
-                            )
-                        } else {
-                            Text(editing ? "Deadline" : "What is the new deadline?")
-                                .font(.system(size: 16, weight: .bold))
-                            
-                            if deadline.endDate > Date.now {
-                                CountdownDateTimer(endDate: deadline.endDate)
-                                    .font(.system(size: 14))
-                            } else {
-                                Text("Deadline is over...")
-                            }
-                        }
-                    }
+                    PrimaryWithSecondaryView(primary: {
+                        InputDatePicker(
+                            date: $newDeadlineDate,
+                            titleLabel: "What is the new deadline?",
+                            subtitleLabel: "Updated date:"
+                        )
+                    }, secondary: {
+                        DeadlineDetailCountdownView(deadline: deadline)
+                    }, showPrimary: editing)
+                    
                     Spacer()
                 }
                 .padding([.leading, .trailing], 32)
@@ -150,6 +130,10 @@ struct DeadlineView: View {
         })
     }
     
+}
+
+extension DeadlineDetails {
+    
     private func onSave() {
         deadline.title = newTitleText
         deadline.body = newDescriptionText
@@ -178,8 +162,10 @@ struct DeadlineView: View {
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
     let deadlines = SampleDeadline.sampleDeadlines
+    let manager = DeadlineManager(container: container)
+    
     return NavigationStack(root: {
-        DeadlineView(deadline: deadlines[0])
-            .modelContainer(container)
+        DeadlineDetails(deadline: deadlines[0])
     })
+    .environmentObject(manager)
 }

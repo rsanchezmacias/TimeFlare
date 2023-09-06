@@ -24,6 +24,9 @@
 		A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D52AA7DD9600D30AD0 /* DeadlineListSection.swift */; };
 		A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D82AA8142400D30AD0 /* ImageThumbnail.swift */; };
 		A96D99DB2AA8210F00D30AD0 /* CenteredHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */; };
+		A96D99DE2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */; };
+		A96D99E02AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */; };
+		A96D99E22AA831ED00D30AD0 /* SnapshotDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -38,7 +41,7 @@
 		A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */; };
 		A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */; };
 		A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7A0002AA30A3400C3FCAA /* EmptyDeadlinesView.swift */; };
-		A9B774972A9FE7310037E598 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774962A9FE7310037E598 /* DeadlineView.swift */; };
+		A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774962A9FE7310037E598 /* DeadlineDetails.swift */; };
 		A9B7749C2AA0558A0037E598 /* CountdownDateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */; };
 		A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
 		A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749F2AA05A330037E598 /* Int+Extension.swift */; };
@@ -87,6 +90,9 @@
 		A96D99D52AA7DD9600D30AD0 /* DeadlineListSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineListSection.swift; sourceTree = "<group>"; };
 		A96D99D82AA8142400D30AD0 /* ImageThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageThumbnail.swift; sourceTree = "<group>"; };
 		A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenteredHStack.swift; sourceTree = "<group>"; };
+		A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetailsTitle.swift; sourceTree = "<group>"; };
+		A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetailCountdownView.swift; sourceTree = "<group>"; };
+		A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotDateView.swift; sourceTree = "<group>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A98F287F2A99CB6C002585F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +108,7 @@
 		A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
 		A9A7A0002AA30A3400C3FCAA /* EmptyDeadlinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDeadlinesView.swift; sourceTree = "<group>"; };
-		A9B774962A9FE7310037E598 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
+		A9B774962A9FE7310037E598 /* DeadlineDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetails.swift; sourceTree = "<group>"; };
 		A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownDateTimer.swift; sourceTree = "<group>"; };
 		A9B7749D2AA056900037E598 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		A9B7749F2AA05A330037E598 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
@@ -245,7 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */,
-				A9B774962A9FE7310037E598 /* DeadlineView.swift */,
+				A9B774962A9FE7310037E598 /* DeadlineDetails.swift */,
+				A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */,
+				A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */,
 			);
 			path = Deadline_Details;
 			sourceTree = "<group>";
@@ -265,6 +273,7 @@
 				A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */,
 				A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */,
 				A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */,
+				A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */,
 				A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */,
 				A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */,
 			);
@@ -390,12 +399,15 @@
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
 				A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */,
 				A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */,
-				A9B774972A9FE7310037E598 /* DeadlineView.swift in Sources */,
+				A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */,
 				A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */,
 				A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */,
 				A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */,
 				A9242A5E2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift in Sources */,
+				A96D99E02AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift in Sources */,
+				A96D99DE2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift in Sources */,
 				A9B7749C2AA0558A0037E598 /* CountdownDateTimer.swift in Sources */,
+				A96D99E22AA831ED00D30AD0 /* SnapshotDateView.swift in Sources */,
 				A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */,
 				A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */,
 				A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */,
