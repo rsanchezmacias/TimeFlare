@@ -16,8 +16,19 @@ struct TimeFlareWidget: Widget {
             kind: kind,
             intent: TimeFlareWidgetConfigurationIntent.self,
             provider: Provider()) { entry in
-                TimeFlareWidgetEntryView(entry: entry)
-                    .containerBackground(.fill.tertiary, for: .widget)
+                ZStack {
+                    TimeFlareWidgetEntryView(entry: entry)
+                        .containerBackground(for: .widget) {
+                            LinearGradient(
+                                colors: [
+                                    Color.charlotte,
+                                    Color.darkBlue
+                                ],
+                                startPoint: .bottomTrailing,
+                                endPoint: .topLeading
+                            )
+                        }
+                }
             }
             .configurationDisplayName("Deadline Countdown")
             .description("Display a countdown for your featured deadline. Simply switch the featured deadline to update the countdown.")
@@ -29,6 +40,6 @@ struct TimeFlareWidget: Widget {
 #Preview(as: .systemSmall) {
     TimeFlareWidget()
 } timeline: {
-    SimpleEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
-    SimpleEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
+    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
+    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
 }

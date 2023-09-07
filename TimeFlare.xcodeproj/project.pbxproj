@@ -52,7 +52,7 @@
 		A9BD67222AA91E1800C1CC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BD67212AA91E1800C1CC03 /* Assets.xcassets */; };
 		A9BD67262AA91E1800C1CC03 /* TimeFlareWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A9BD67162AA91E1600C1CC03 /* TimeFlareWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A9BD67312AA9206600C1CC03 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67302AA9206600C1CC03 /* Provider.swift */; };
-		A9BD67332AA9208E00C1CC03 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */; };
+		A9BD67332AA9208E00C1CC03 /* DeadlineCountdownEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67322AA9208E00C1CC03 /* DeadlineCountdownEntry.swift */; };
 		A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */; };
 		A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A178172A9D2ED4000B62A7 /* Data+Extension.swift */; };
 		A9BD673C2AA92F6B00C1CC03 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */; };
@@ -67,6 +67,15 @@
 		A9BD67562AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
 		A9BD67572AAA4D4900C1CC03 /* DeadlineSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */; };
 		A9BD67582AAA512500C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */; };
+		A9BD67592AAA7E2200C1CC03 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749F2AA05A330037E598 /* Int+Extension.swift */; };
+		A9BD675C2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD675A2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift */; };
+		A9BD675E2AAA850800C1CC03 /* DeadlineCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD675D2AAA850800C1CC03 /* DeadlineCountdownView.swift */; };
+		A9BD675F2AAA850800C1CC03 /* DeadlineCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD675D2AAA850800C1CC03 /* DeadlineCountdownView.swift */; };
+		A9BD67612AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */; };
+		A9BD67622AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */; };
+		A9BD67652AAA8A5500C1CC03 /* DeadlineSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */; };
+		A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */; };
+		A9BD67692AAA8EBD00C1CC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -163,7 +172,7 @@
 		A9BD67212AA91E1800C1CC03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9BD67232AA91E1800C1CC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BD67302AA9206600C1CC03 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
-		A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
+		A9BD67322AA9208E00C1CC03 /* DeadlineCountdownEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCountdownEntry.swift; sourceTree = "<group>"; };
 		A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidgetEntryView.swift; sourceTree = "<group>"; };
 		A9BD67392AA9284000C1CC03 /* TimeFlare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeFlare.entitlements; sourceTree = "<group>"; };
 		A9BD673A2AA92DCB00C1CC03 /* TimeFlareWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeFlareWidgetExtension.entitlements; sourceTree = "<group>"; };
@@ -173,6 +182,11 @@
 		A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryEntityQuery.swift; sourceTree = "<group>"; };
 		A9BD674F2AAA4B8900C1CC03 /* InjectedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedKeys.swift; sourceTree = "<group>"; };
 		A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupInjectedKeys.swift; sourceTree = "<group>"; };
+		A9BD675A2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryHeadlineView.swift; sourceTree = "<group>"; };
+		A9BD675D2AAA850800C1CC03 /* DeadlineCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCountdownView.swift; sourceTree = "<group>"; };
+		A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDayAndYearView.swift; sourceTree = "<group>"; };
+		A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryView.swift; sourceTree = "<group>"; };
+		A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDeadlineSummarySelectedView.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -391,6 +405,11 @@
 			isa = PBXGroup;
 			children = (
 				A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */,
+				A9BD675A2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift */,
+				A9BD675D2AAA850800C1CC03 /* DeadlineCountdownView.swift */,
+				A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */,
+				A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */,
+				A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -401,7 +420,7 @@
 				A9BD674E2AA9ACBB00C1CC03 /* AppIntent */,
 				A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */,
 				A9BD67302AA9206600C1CC03 /* Provider.swift */,
-				A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */,
+				A9BD67322AA9208E00C1CC03 /* DeadlineCountdownEntry.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -514,6 +533,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9BD67692AAA8EBD00C1CC03 /* Assets.xcassets in Resources */,
 				A9BD67222AA91E1800C1CC03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,7 +580,9 @@
 				A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */,
 				A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */,
 				A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */,
+				A9BD67612AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */,
 				A9BD67432AA96D7400C1CC03 /* DeadlineSchemaMigrationPlan.swift in Sources */,
+				A9BD675E2AAA850800C1CC03 /* DeadlineCountdownView.swift in Sources */,
 				A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */,
 				A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */,
 				A96D99E02AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift in Sources */,
@@ -596,14 +618,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */,
-				A9BD67332AA9208E00C1CC03 /* SimpleEntry.swift in Sources */,
+				A9BD67332AA9208E00C1CC03 /* DeadlineCountdownEntry.swift in Sources */,
 				A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */,
 				A9BD67522AAA4BA100C1CC03 /* Injected.swift in Sources */,
 				A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
+				A9BD675C2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift in Sources */,
 				A9BD67562AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A9BD671E2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift in Sources */,
 				A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
+				A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */,
+				A9BD67592AAA7E2200C1CC03 /* Int+Extension.swift in Sources */,
+				A9BD67652AAA8A5500C1CC03 /* DeadlineSummaryView.swift in Sources */,
+				A9BD67622AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */,
 				A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */,
+				A9BD675F2AAA850800C1CC03 /* DeadlineCountdownView.swift in Sources */,
 				A9BD67312AA9206600C1CC03 /* Provider.swift in Sources */,
 				A9BD67202AA91E1600C1CC03 /* TimeFlareWidget.swift in Sources */,
 				A9BD673D2AA92F6B00C1CC03 /* AppGroup.swift in Sources */,
