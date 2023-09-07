@@ -15,7 +15,6 @@
 		A9200BAA2A9EA6340017C9BA /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA92A9EA6340017C9BA /* ImagePickerViewController.swift */; };
 		A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAB2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift */; };
 		A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */; };
-		A9242A5E2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */; };
 		A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */; };
 		A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */; };
 		A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99CF2AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift */; };
@@ -46,8 +45,34 @@
 		A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
 		A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749F2AA05A330037E598 /* Int+Extension.swift */; };
 		A9B774A52AA13D5A0037E598 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774A42AA13D5A0037E598 /* Injected.swift */; };
+		A9BD67192AA91E1600C1CC03 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD67182AA91E1600C1CC03 /* WidgetKit.framework */; };
+		A9BD671B2AA91E1600C1CC03 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9BD671A2AA91E1600C1CC03 /* SwiftUI.framework */; };
+		A9BD671E2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD671D2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift */; };
+		A9BD67202AA91E1600C1CC03 /* TimeFlareWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD671F2AA91E1600C1CC03 /* TimeFlareWidget.swift */; };
+		A9BD67222AA91E1800C1CC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9BD67212AA91E1800C1CC03 /* Assets.xcassets */; };
+		A9BD67262AA91E1800C1CC03 /* TimeFlareWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A9BD67162AA91E1600C1CC03 /* TimeFlareWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A9BD67312AA9206600C1CC03 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67302AA9206600C1CC03 /* Provider.swift */; };
+		A9BD67332AA9208E00C1CC03 /* SimpleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */; };
+		A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */; };
+		A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A178172A9D2ED4000B62A7 /* Data+Extension.swift */; };
+		A9BD673C2AA92F6B00C1CC03 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */; };
+		A9BD673D2AA92F6B00C1CC03 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */; };
+		A9BD67432AA96D7400C1CC03 /* DeadlineSchemaMigrationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */; };
+		A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */; };
+		A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */; };
+		A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A9BD67242AA91E1800C1CC03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A98F28702A99CB67002585F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BD67152AA91E1600C1CC03;
+			remoteInfo = TimeFlareWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A9A178142A9D296F000B62A7 /* Embed Frameworks */ = {
@@ -68,6 +93,17 @@
 			files = (
 			);
 			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD67272AA91E1800C1CC03 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				A9BD67262AA91E1800C1CC03 /* TimeFlareWidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -113,6 +149,22 @@
 		A9B7749D2AA056900037E598 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		A9B7749F2AA05A330037E598 /* Int+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extension.swift"; sourceTree = "<group>"; };
 		A9B774A42AA13D5A0037E598 /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		A9BD67162AA91E1600C1CC03 /* TimeFlareWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimeFlareWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BD67182AA91E1600C1CC03 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		A9BD671A2AA91E1600C1CC03 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		A9BD671D2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidgetBundle.swift; sourceTree = "<group>"; };
+		A9BD671F2AA91E1600C1CC03 /* TimeFlareWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidget.swift; sourceTree = "<group>"; };
+		A9BD67212AA91E1800C1CC03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A9BD67232AA91E1800C1CC03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BD67302AA9206600C1CC03 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
+		A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleEntry.swift; sourceTree = "<group>"; };
+		A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidgetEntryView.swift; sourceTree = "<group>"; };
+		A9BD67392AA9284000C1CC03 /* TimeFlare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeFlare.entitlements; sourceTree = "<group>"; };
+		A9BD673A2AA92DCB00C1CC03 /* TimeFlareWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeFlareWidgetExtension.entitlements; sourceTree = "<group>"; };
+		A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
+		A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummary.swift; sourceTree = "<group>"; };
+		A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryEntityQuery.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +174,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD67132AA91E1600C1CC03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD671B2AA91E1600C1CC03 /* SwiftUI.framework in Frameworks */,
+				A9BD67192AA91E1600C1CC03 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,14 +241,19 @@
 		A98F286F2A99CB67002585F5 = {
 			isa = PBXGroup;
 			children = (
+				A9BD673A2AA92DCB00C1CC03 /* TimeFlareWidgetExtension.entitlements */,
 				A98F287A2A99CB67002585F5 /* TimeFlare */,
 				A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */,
+				A9BD67162AA91E1600C1CC03 /* TimeFlareWidgetExtension.appex */,
+				A9BD671C2AA91E1600C1CC03 /* TimeFlareWidget */,
+				A9BD67172AA91E1600C1CC03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		A98F287A2A99CB67002585F5 /* TimeFlare */ = {
 			isa = PBXGroup;
 			children = (
+				A9BD67392AA9284000C1CC03 /* TimeFlare.entitlements */,
 				A98F28A12A9D2233002585F5 /* Resources */,
 				A98F28902A9A9F8B002585F5 /* Models */,
 				A98F288E2A9A9F68002585F5 /* Views */,
@@ -221,6 +287,7 @@
 				A9200B9E2A9DC2070017C9BA /* Namespace.swift */,
 				A9200BA62A9E94DB0017C9BA /* FileService.swift */,
 				A9B7749D2AA056900037E598 /* DateUtil.swift */,
+				A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -288,6 +355,56 @@
 			path = Dependency_Injection;
 			sourceTree = "<group>";
 		};
+		A9BD67172AA91E1600C1CC03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD67182AA91E1600C1CC03 /* WidgetKit.framework */,
+				A9BD671A2AA91E1600C1CC03 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9BD671C2AA91E1600C1CC03 /* TimeFlareWidget */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD672C2AA91EFF00C1CC03 /* Model */,
+				A9BD672B2AA91EF900C1CC03 /* View */,
+				A9BD671D2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift */,
+				A9BD671F2AA91E1600C1CC03 /* TimeFlareWidget.swift */,
+				A9BD67212AA91E1800C1CC03 /* Assets.xcassets */,
+				A9BD67232AA91E1800C1CC03 /* Info.plist */,
+			);
+			path = TimeFlareWidget;
+			sourceTree = "<group>";
+		};
+		A9BD672B2AA91EF900C1CC03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD67352AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9BD672C2AA91EFF00C1CC03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD674E2AA9ACBB00C1CC03 /* AppIntent */,
+				A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */,
+				A9BD67302AA9206600C1CC03 /* Provider.swift */,
+				A9BD67322AA9208E00C1CC03 /* SimpleEntry.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A9BD674E2AA9ACBB00C1CC03 /* AppIntent */ = {
+			isa = PBXGroup;
+			children = (
+				A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */,
+				A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */,
+			);
+			path = AppIntent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,10 +418,12 @@
 				A9A178142A9D296F000B62A7 /* Embed Frameworks */,
 				A9A178282A9D3F7A000B62A7 /* Embed Frameworks */,
 				A9B774952A9F1EE40037E598 /* Swiftlint */,
+				A9BD67272AA91E1800C1CC03 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A9BD67252AA91E1800C1CC03 /* PBXTargetDependency */,
 			);
 			name = TimeFlare;
 			packageProductDependencies = (
@@ -312,6 +431,23 @@
 			productName = TimeFlare;
 			productReference = A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A9BD67152AA91E1600C1CC03 /* TimeFlareWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BD672A2AA91E1800C1CC03 /* Build configuration list for PBXNativeTarget "TimeFlareWidgetExtension" */;
+			buildPhases = (
+				A9BD67122AA91E1600C1CC03 /* Sources */,
+				A9BD67132AA91E1600C1CC03 /* Frameworks */,
+				A9BD67142AA91E1600C1CC03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeFlareWidgetExtension;
+			productName = TimeFlareWidgetExtension;
+			productReference = A9BD67162AA91E1600C1CC03 /* TimeFlareWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -324,6 +460,9 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					A98F28772A99CB67002585F5 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+					A9BD67152AA91E1600C1CC03 = {
 						CreatedOnToolsVersion = 15.0;
 					};
 				};
@@ -344,6 +483,7 @@
 			projectRoot = "";
 			targets = (
 				A98F28772A99CB67002585F5 /* TimeFlare */,
+				A9BD67152AA91E1600C1CC03 /* TimeFlareWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -357,6 +497,14 @@
 				A98F288B2A9A9099002585F5 /* LaunchScreen.storyboard in Resources */,
 				A98F28832A99CB6C002585F5 /* Preview Assets.xcassets in Resources */,
 				A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BD67142AA91E1600C1CC03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD67222AA91E1800C1CC03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,12 +549,13 @@
 				A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */,
 				A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */,
 				A9200BA52A9E796C0017C9BA /* ImagePickerView.swift in Sources */,
+				A9BD67432AA96D7400C1CC03 /* DeadlineSchemaMigrationPlan.swift in Sources */,
 				A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */,
 				A9A1781A2A9D326F000B62A7 /* DeadlineDashboard.swift in Sources */,
-				A9242A5E2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift in Sources */,
 				A96D99E02AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift in Sources */,
 				A96D99DE2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift in Sources */,
 				A9B7749C2AA0558A0037E598 /* CountdownDateTimer.swift in Sources */,
+				A9BD673C2AA92F6B00C1CC03 /* AppGroup.swift in Sources */,
 				A96D99E22AA831ED00D30AD0 /* SnapshotDateView.swift in Sources */,
 				A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */,
 				A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */,
@@ -428,7 +577,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9BD67122AA91E1600C1CC03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */,
+				A9BD67332AA9208E00C1CC03 /* SimpleEntry.swift in Sources */,
+				A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */,
+				A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
+				A9BD671E2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift in Sources */,
+				A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
+				A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */,
+				A9BD67312AA9206600C1CC03 /* Provider.swift in Sources */,
+				A9BD67202AA91E1600C1CC03 /* TimeFlareWidget.swift in Sources */,
+				A9BD673D2AA92F6B00C1CC03 /* AppGroup.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BD67252AA91E1800C1CC03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BD67152AA91E1600C1CC03 /* TimeFlareWidgetExtension */;
+			targetProxy = A9BD67242AA91E1800C1CC03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A98F28842A99CB6C002585F5 /* Debug */ = {
@@ -553,8 +727,10 @@
 		A98F28872A99CB6C002585F5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeFlare/TimeFlare.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -577,7 +753,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.TimeFlare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = rs.time.flare.provisioning.profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TimeFlare iOS App Profile";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -587,8 +763,10 @@
 		A98F28882A99CB6C002585F5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TimeFlare/TimeFlare.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
@@ -611,7 +789,73 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.TimeFlare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = rs.time.flare.provisioning.profile;
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TimeFlare iOS App Profile";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A9BD67282AA91E1800C1CC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TimeFlareWidgetExtension.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FJAA2F3LCL;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeFlareWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimeFlareWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.TimeFlare.TimeFlareWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TimeFlare Widget Profile";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A9BD67292AA91E1800C1CC03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = TimeFlareWidgetExtension.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = FJAA2F3LCL;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TimeFlareWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TimeFlareWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.TimeFlare.TimeFlareWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "TimeFlare Widget Profile";
+				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -635,6 +879,15 @@
 			buildConfigurations = (
 				A98F28872A99CB6C002585F5 /* Debug */,
 				A98F28882A99CB6C002585F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BD672A2AA91E1800C1CC03 /* Build configuration list for PBXNativeTarget "TimeFlareWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BD67282AA91E1800C1CC03 /* Debug */,
+				A9BD67292AA91E1800C1CC03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
