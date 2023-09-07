@@ -51,14 +51,3 @@ struct Injected<T> {
     }
     
 }
-
-private struct DeadlineStorageKey: InjectionKey {
-    static var currentValue: DeadlineStorageProtocol = DeadlineStorage()
-}
-
-extension InjectedValues {
-    var deadlineStorage: DeadlineStorageProtocol {
-        get { Self[DeadlineStorageKey.self] }
-        set { Self[DeadlineStorageKey.self] = newValue }
-    }
-}

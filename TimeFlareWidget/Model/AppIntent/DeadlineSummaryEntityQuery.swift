@@ -9,14 +9,17 @@ import AppIntents
 
 struct DeadlineSummaryEntityQuery: EntityQuery {
     
+    @Injected(\.deadlineSummaryFileService) private var fileService
+    
     func entities(for identifiers: [UUID]) async throws -> [DeadlineSummary] {
-        return DeadlineSummary.sampleDeadlineSummaries.filter { summary in
+        let summaries = fileService.read()
+        return summaries.filter { summary in
             identifiers.contains(summary.id)
         }
     }
     
     func suggestedEntities() async throws -> [DeadlineSummary] {
-        return DeadlineSummary.sampleDeadlineSummaries
+        return fileService.read()
     }
     
     func defaultResult() async -> DeadlineSummary? {

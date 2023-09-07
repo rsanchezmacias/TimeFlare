@@ -61,6 +61,12 @@
 		A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */; };
 		A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */; };
 		A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */; };
+		A9BD67502AAA4B8900C1CC03 /* InjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD674F2AAA4B8900C1CC03 /* InjectedKeys.swift */; };
+		A9BD67522AAA4BA100C1CC03 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774A42AA13D5A0037E598 /* Injected.swift */; };
+		A9BD67552AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
+		A9BD67562AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
+		A9BD67572AAA4D4900C1CC03 /* DeadlineSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */; };
+		A9BD67582AAA512500C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -165,6 +171,8 @@
 		A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareWidgetConfigurationIntent.swift; sourceTree = "<group>"; };
 		A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummary.swift; sourceTree = "<group>"; };
 		A9BD674B2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryEntityQuery.swift; sourceTree = "<group>"; };
+		A9BD674F2AAA4B8900C1CC03 /* InjectedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedKeys.swift; sourceTree = "<group>"; };
+		A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupInjectedKeys.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -351,6 +359,8 @@
 			isa = PBXGroup;
 			children = (
 				A9B774A42AA13D5A0037E598 /* Injected.swift */,
+				A9BD674F2AAA4B8900C1CC03 /* InjectedKeys.swift */,
+				A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */,
 			);
 			path = Dependency_Injection;
 			sourceTree = "<group>";
@@ -540,6 +550,7 @@
 				A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */,
 				A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */,
 				A96D99D22AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift in Sources */,
+				A9BD67582AAA512500C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
 				A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */,
 				A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
@@ -564,10 +575,13 @@
 				A9200BAA2A9EA6340017C9BA /* ImagePickerViewController.swift in Sources */,
 				A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */,
 				A98F28952A9A9FD0002585F5 /* Deadline.swift in Sources */,
+				A9BD67502AAA4B8900C1CC03 /* InjectedKeys.swift in Sources */,
+				A9BD67572AAA4D4900C1CC03 /* DeadlineSummary.swift in Sources */,
 				A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */,
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
+				A9BD67552AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */,
 				A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */,
 				A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */,
@@ -584,7 +598,9 @@
 				A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */,
 				A9BD67332AA9208E00C1CC03 /* SimpleEntry.swift in Sources */,
 				A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */,
+				A9BD67522AAA4BA100C1CC03 /* Injected.swift in Sources */,
 				A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
+				A9BD67562AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A9BD671E2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift in Sources */,
 				A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
 				A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */,

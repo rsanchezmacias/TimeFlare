@@ -15,7 +15,7 @@ struct DeadlineSummary: AppEntity, Codable {
     
     let id: UUID
     let title: String
-    let description: String
+    let description: String?
     let endDate: Date
     
     var displayRepresentation: DisplayRepresentation {

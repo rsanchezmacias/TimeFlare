@@ -13,7 +13,7 @@ struct TimeFlareWidgetEntryView : View {
     
     var body: some View {
         if let deadlineSummary = entry.deadlineSummary {
-            VStack(spacing: 4) {
+            VStack(alignment: .center, spacing: 4) {
                 Text(deadlineSummary.title)
                     .font(.headline)
                 Text(deadlineSummary.endDate, style: .timer)
@@ -22,10 +22,12 @@ struct TimeFlareWidgetEntryView : View {
                     .font(.subheadline)
             }
         } else {
-            Text("No selected deadline")
-                .font(.headline)
-            Text("Please select a deadline to quickly glance at a countdown for the deadline.")
-                .font(.caption)
+            VStack(spacing: 4) {
+                Text("No selected deadline")
+                    .font(.subheadline)
+                Text("Please select a deadline to quickly glance at a countdown for the deadline.")
+                    .font(.caption)
+            }
         }
     }
 }
