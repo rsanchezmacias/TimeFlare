@@ -75,7 +75,7 @@ class DeadlineManager: ObservableObject {
                     deadline.endDate <= Date.now
                 })
                 
-                fileService.write(summaries: allDeadlines.map { $0.toSummary() })
+                fileService.write(summaries: ongoingDeadlines.map { $0.toSummary() })
             }
         }
     }

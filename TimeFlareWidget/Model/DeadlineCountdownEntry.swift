@@ -13,6 +13,10 @@ struct DeadlineCountdownEntry: TimelineEntry {
     let date: Date
     let deadlineSummary: DeadlineSummary?
     
+    var deepLink: URL {
+        return deadlineSummary?.deepLinkURL ?? DeepLink.defaultURL
+    }
+    
     var countdownDate: Date? {
         getCountdownDate()
     }

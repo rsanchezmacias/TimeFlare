@@ -23,6 +23,7 @@ struct TimeFlareWidgetEntryView : View {
                 NoDeadlineSummarySelectedView()
             }
         }
+        .widgetURL(entry.deepLink)
     }
     
 }

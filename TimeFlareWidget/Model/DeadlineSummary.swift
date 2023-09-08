@@ -18,6 +18,10 @@ struct DeadlineSummary: AppEntity, Codable {
     let description: String?
     let endDate: Date
     
+    var deepLinkURL: URL {
+        return DeepLink.showURL(deadlineId: id)
+    }
+    
     var displayRepresentation: DisplayRepresentation {
         return DisplayRepresentation(title: "\(title)")
     }

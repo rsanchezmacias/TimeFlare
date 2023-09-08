@@ -15,8 +15,10 @@ struct DeadlineDashboard: View {
     @State private var editButtonVisible: Bool = false
     @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
+    @ObservedObject private var deepLinkModel = DeadlineDeepLinkModel()
+    
     var body: some View {
-        NavigationStack(root: {
+        NavigationStack(path: $deepLinkModel.path, root: {
             
             List {
                 
@@ -85,6 +87,13 @@ struct DeadlineDashboard: View {
             .onChange(of: deadlineManager.allDeadlines, initial: false) { _, _ in
                 editButtonVisible = !deadlineManager.allDeadlines.isEmpty
             }
+            .onOpenURL { url in
+                deepLinkModel.handleDeepLink(url: url, deadlines: deadlineManager.allDeadlines)
+            }
+            .navigationDestination(for: Deadline.self) { deadline in
+                DeadlineDetails(deadline: deadline)
+            }
+            
         })
         
     }

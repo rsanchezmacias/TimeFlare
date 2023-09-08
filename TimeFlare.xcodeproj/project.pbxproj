@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9135B4B2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */; };
 		A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */; };
 		A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9E2A9DC2070017C9BA /* Namespace.swift */; };
 		A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */; };
@@ -76,6 +77,8 @@
 		A9BD67652AAA8A5500C1CC03 /* DeadlineSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */; };
 		A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */; };
 		A9BD67692AAA8EBD00C1CC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
+		A9BD676B2AAAA86E00C1CC03 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */; };
+		A9BD676C2AAAA86E00C1CC03 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +127,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDeepLinkModel.swift; sourceTree = "<group>"; };
 		A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineManager.swift; sourceTree = "<group>"; };
 		A9200B9E2A9DC2070017C9BA /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeadlineForm.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDayAndYearView.swift; sourceTree = "<group>"; };
 		A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryView.swift; sourceTree = "<group>"; };
 		A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoDeadlineSummarySelectedView.swift; sourceTree = "<group>"; };
+		A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLink.swift; sourceTree = "<group>"; };
 		A9CCCB6A2A9EE23A006B45AD /* TimeFlare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeFlare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputDatePicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -310,6 +315,7 @@
 				A9200BA62A9E94DB0017C9BA /* FileService.swift */,
 				A9B7749D2AA056900037E598 /* DateUtil.swift */,
 				A9BD673B2AA92F6B00C1CC03 /* AppGroup.swift */,
+				A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				A96D99CC2AA7C00A00D30AD0 /* Storage */,
 				A98F28942A9A9FD0002585F5 /* Deadline.swift */,
 				A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */,
+				A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -592,12 +599,14 @@
 				A96D99E22AA831ED00D30AD0 /* SnapshotDateView.swift in Sources */,
 				A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */,
 				A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */,
+				A9BD676B2AAAA86E00C1CC03 /* DeepLink.swift in Sources */,
 				A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */,
 				A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */,
 				A9200BAA2A9EA6340017C9BA /* ImagePickerViewController.swift in Sources */,
 				A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */,
 				A98F28952A9A9FD0002585F5 /* Deadline.swift in Sources */,
 				A9BD67502AAA4B8900C1CC03 /* InjectedKeys.swift in Sources */,
+				A9135B4B2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift in Sources */,
 				A9BD67572AAA4D4900C1CC03 /* DeadlineSummary.swift in Sources */,
 				A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */,
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
@@ -628,6 +637,7 @@
 				A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
 				A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */,
 				A9BD67592AAA7E2200C1CC03 /* Int+Extension.swift in Sources */,
+				A9BD676C2AAAA86E00C1CC03 /* DeepLink.swift in Sources */,
 				A9BD67652AAA8A5500C1CC03 /* DeadlineSummaryView.swift in Sources */,
 				A9BD67622AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */,
 				A9BD67362AA920B900C1CC03 /* TimeFlareWidgetEntryView.swift in Sources */,
