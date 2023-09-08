@@ -10,7 +10,7 @@ import WidgetKit
 
 protocol WidgetUpdateManagerProtocol {
     
-    func setAsDirty()
+    func setAsDirtyIfNeeded(affectedDeadline: Deadline)
     func updateWidgetContentIfNeeded()
     
 }
@@ -22,6 +22,20 @@ class WidgetUpdateManager: WidgetUpdateManagerProtocol {
     
     private let widgetKind = "TimeFlareWidget"
     private var isStorageDirty = false
+    
+    private var currentWidgetInfo: WidgetInfo?
+    
+    init() {
+        WidgetCenter.shared.getCurrentConfigurations { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let widgetInfoList):
+                self.currentWidgetInfo = widgetInfoList.first { $0.kind == self.widgetKind }
+            case .failure:
+                print("[WidgetUpdateManager] No widget info found for app")
+            }
+        }
+    }
     
     func updateWidgetContentIfNeeded() {
         guard isStorageDirty else {
@@ -50,8 +64,12 @@ class WidgetUpdateManager: WidgetUpdateManagerProtocol {
         }
     }
     
-    func setAsDirty() {
-        isStorageDirty = true
+    func setAsDirtyIfNeeded(affectedDeadline: Deadline) {
+        guard let configuration = currentWidgetInfo?.widgetConfigurationIntent(of: TimeFlareWidgetConfigurationIntent.self) else { return }
+        
+        if configuration.deadline?.id == affectedDeadline.id {
+            isStorageDirty = true
+        }
     }
     
 }

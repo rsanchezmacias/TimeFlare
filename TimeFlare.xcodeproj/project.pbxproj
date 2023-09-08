@@ -12,6 +12,7 @@
 		A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
 		A9135B502AAAEC9600B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
 		A9135B512AAAECF000B5D628 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
+		A9135B522AAAF06A00B5D628 /* TimeFlareWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */; };
 		A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */; };
 		A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9E2A9DC2070017C9BA /* Namespace.swift */; };
 		A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */; };
@@ -591,6 +592,7 @@
 				A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */,
 				A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
+				A9135B522AAAF06A00B5D628 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
 				A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */,
 				A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */,
 				A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */,

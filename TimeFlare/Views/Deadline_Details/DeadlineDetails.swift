@@ -144,7 +144,7 @@ extension DeadlineDetails {
             deadline.imageData = newDeadlineUIImage?.toData()
         }
         
-        widgetUpdateManager.setAsDirty()
+        widgetUpdateManager.setAsDirtyIfNeeded(affectedDeadline: deadline)
     }
     
     private func onCancel() {
