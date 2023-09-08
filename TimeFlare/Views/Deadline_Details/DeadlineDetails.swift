@@ -12,6 +12,7 @@ struct DeadlineDetails: View {
     var deadline: Deadline
     
     @EnvironmentObject private var deadlineManager: DeadlineManager
+    @Injected(\.widgetUpdateManager) private var widgetUpdateManager
     
     @State private var editing: Bool = false
     
@@ -142,6 +143,8 @@ extension DeadlineDetails {
         if newDeadlineUIImage != nil {
             deadline.imageData = newDeadlineUIImage?.toData()
         }
+        
+        widgetUpdateManager.setAsDirty()
     }
     
     private func onCancel() {

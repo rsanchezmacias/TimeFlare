@@ -12,6 +12,8 @@ import SwiftData
 struct TimeFlareApp: App {
     
     @Environment(\.scenePhase) private var scenePhase
+    @Injected(\.widgetUpdateManager) private var widgetUpdateManager
+    
     let deadlineManager: DeadlineManager
     
     init() {
@@ -23,6 +25,11 @@ struct TimeFlareApp: App {
             MainContentView()
         }
         .environmentObject(deadlineManager)
+        .onChange(of: scenePhase) { _, currentScenePhase in
+            if currentScenePhase == .background {
+                widgetUpdateManager.updateWidgetContentIfNeeded()
+            }
+        }
     }
     
 }

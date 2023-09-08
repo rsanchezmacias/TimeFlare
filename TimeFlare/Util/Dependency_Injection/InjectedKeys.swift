@@ -17,3 +17,14 @@ extension InjectedValues {
         set { Self[DeadlineStorageKey.self] = newValue }
     }
 }
+
+private struct WidgetUpdateManagerKey: InjectionKey {
+    static var currentValue: WidgetUpdateManagerProtocol = WidgetUpdateManager()
+}
+
+extension InjectedValues {
+    var widgetUpdateManager: WidgetUpdateManagerProtocol {
+        get { Self[WidgetUpdateManagerKey.self] }
+        set { Self[WidgetUpdateManagerKey.self] = newValue }
+    }
+}

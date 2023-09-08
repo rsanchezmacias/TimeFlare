@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 enum SortType: Int, CaseIterable {
     case ascendingDate
@@ -25,8 +26,8 @@ enum SortType: Int, CaseIterable {
 
 class DeadlineManager: ObservableObject {
     
-    @Injected(\.deadlineStorage) var storage
-    @Injected(\.deadlineSummaryFileService) var fileService
+    @Injected(\.deadlineStorage) private var storage
+    @Injected(\.deadlineSummaryFileService) private var fileService
     
     @Published var featuredDeadline: Deadline?
     @Published var allDeadlines: [Deadline] = []
