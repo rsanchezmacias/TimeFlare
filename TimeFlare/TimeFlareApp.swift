@@ -28,6 +28,8 @@ struct TimeFlareApp: App {
         .onChange(of: scenePhase) { _, currentScenePhase in
             if currentScenePhase == .background {
                 widgetUpdateManager.updateWidgetContentIfNeeded()
+            } else if currentScenePhase == .active {
+                widgetUpdateManager.updateCurrentWidgetInfo()
             }
         }
     }

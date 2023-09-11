@@ -12,6 +12,7 @@ protocol WidgetUpdateManagerProtocol {
     
     func setAsDirtyIfNeeded(affectedDeadline: Deadline)
     func updateWidgetContentIfNeeded()
+    func updateCurrentWidgetInfo()
     
 }
 
@@ -26,15 +27,7 @@ class WidgetUpdateManager: WidgetUpdateManagerProtocol {
     private var currentWidgetInfo: WidgetInfo?
     
     init() {
-        WidgetCenter.shared.getCurrentConfigurations { [weak self] result in
-            guard let self = self else { return }
-            switch result {
-            case .success(let widgetInfoList):
-                self.currentWidgetInfo = widgetInfoList.first { $0.kind == self.widgetKind }
-            case .failure:
-                print("[WidgetUpdateManager] No widget info found for app")
-            }
-        }
+        updateCurrentWidgetInfo()
     }
     
     func updateWidgetContentIfNeeded() {
@@ -69,6 +62,18 @@ class WidgetUpdateManager: WidgetUpdateManagerProtocol {
         
         if configuration.deadline?.id == affectedDeadline.id {
             isStorageDirty = true
+        }
+    }
+    
+    func updateCurrentWidgetInfo() {
+        WidgetCenter.shared.getCurrentConfigurations { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let widgetInfoList):
+                self.currentWidgetInfo = widgetInfoList.first { $0.kind == self.widgetKind }
+            case .failure:
+                print("[WidgetUpdateManager] No widget info found for app")
+            }
         }
     }
     
