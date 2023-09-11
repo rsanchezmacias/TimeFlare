@@ -22,6 +22,8 @@ struct DeadlineSummary: AppEntity, Codable {
         return DeepLink.showURL(deadlineId: id)
     }
     
+    var isExpired: Bool = false
+    
     var displayRepresentation: DisplayRepresentation {
         return DisplayRepresentation(title: "\(title)")
     }
@@ -37,13 +39,19 @@ struct DeadlineSummary: AppEntity, Codable {
             id: UUID(),
             title: "First layoff wave",
             description: "Haren and Justin losing job this round",
-            endDate: Date(timeIntervalSinceNow: 9066)
+            endDate: Date(timeIntervalSinceNow: 5)
         ),
         DeadlineSummary(
             id: UUID(),
             title: "Second layoff wave",
             description: "I am losing my job this round",
             endDate: Date(timeIntervalSinceNow: 18543)
+        ),
+        DeadlineSummary(
+            id: UUID(),
+            title: "First layoff wave",
+            description: "Haren and Justin losing job this round",
+            endDate: Date(timeIntervalSinceNow: -1)
         )
     ]
     

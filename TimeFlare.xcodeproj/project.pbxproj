@@ -13,6 +13,8 @@
 		A9135B502AAAEC9600B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
 		A9135B512AAAECF000B5D628 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
 		A9135B522AAAF06A00B5D628 /* TimeFlareWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */; };
+		A9135B532AAAFA2B00B5D628 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
+		A9135B562AAAFCFA00B5D628 /* DeadlineSummaryBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B542AAAFCD700B5D628 /* DeadlineSummaryBodyView.swift */; };
 		A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */; };
 		A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200B9E2A9DC2070017C9BA /* Namespace.swift */; };
 		A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */; };
@@ -134,6 +136,7 @@
 		A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDeepLinkModel.swift; sourceTree = "<group>"; };
 		A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryFileService.swift; sourceTree = "<group>"; };
+		A9135B542AAAFCD700B5D628 /* DeadlineSummaryBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryBodyView.swift; sourceTree = "<group>"; };
 		A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineManager.swift; sourceTree = "<group>"; };
 		A9200B9E2A9DC2070017C9BA /* Namespace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Namespace.swift; sourceTree = "<group>"; };
 		A9200BA22A9DC2BF0017C9BA /* NewDeadlineForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeadlineForm.swift; sourceTree = "<group>"; };
@@ -424,6 +427,7 @@
 				A9BD675D2AAA850800C1CC03 /* DeadlineCountdownView.swift */,
 				A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */,
 				A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */,
+				A9135B542AAAFCD700B5D628 /* DeadlineSummaryBodyView.swift */,
 				A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */,
 			);
 			path = View;
@@ -434,8 +438,8 @@
 			children = (
 				A9BD674E2AA9ACBB00C1CC03 /* AppIntent */,
 				A9BD67472AA9A63E00C1CC03 /* DeadlineSummary.swift */,
-				A9BD67302AA9206600C1CC03 /* Provider.swift */,
 				A9BD67322AA9208E00C1CC03 /* DeadlineCountdownEntry.swift */,
+				A9BD67302AA9206600C1CC03 /* Provider.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -643,8 +647,10 @@
 				A9BD67522AAA4BA100C1CC03 /* Injected.swift in Sources */,
 				A9BD67462AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
 				A9BD675C2AAA832000C1CC03 /* DeadlineSummaryHeadlineView.swift in Sources */,
+				A9135B532AAAFA2B00B5D628 /* DateUtil.swift in Sources */,
 				A9BD671E2AA91E1600C1CC03 /* TimeFlareWidgetBundle.swift in Sources */,
 				A9BD674D2AA9A9A400C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
+				A9135B562AAAFCFA00B5D628 /* DeadlineSummaryBodyView.swift in Sources */,
 				A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */,
 				A9BD67592AAA7E2200C1CC03 /* Int+Extension.swift in Sources */,
 				A9BD676C2AAAA86E00C1CC03 /* DeepLink.swift in Sources */,

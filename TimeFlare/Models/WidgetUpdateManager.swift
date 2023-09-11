@@ -58,11 +58,12 @@ class WidgetUpdateManager: WidgetUpdateManagerProtocol {
     }
     
     func setAsDirtyIfNeeded(affectedDeadline: Deadline) {
-        guard let configuration = currentWidgetInfo?.widgetConfigurationIntent(of: TimeFlareWidgetConfigurationIntent.self) else { return }
-        
-        if configuration.deadline?.id == affectedDeadline.id {
-            isStorageDirty = true
+        guard affectedDeadline.endDate > Date.now else {
+            print("[WidgetUpdateManager] Affected deadline does not appear on the widget intent")
+            return
         }
+        
+        isStorageDirty = true
     }
     
     func updateCurrentWidgetInfo() {

@@ -23,10 +23,16 @@ struct Provider: AppIntentTimelineProvider {
         for configuration: TimeFlareWidgetConfigurationIntent,
         in context: Context
     ) async -> Timeline<DeadlineCountdownEntry> {
-        let entry = DeadlineCountdownEntry(date: Date.now, deadlineSummary: configuration.deadline)
-        let timeline = Timeline(entries: [entry], policy: .atEnd)
+        // Date to show expired deadline
+        let reloadTimelineDate = DateUtil.getCountdownDate(for: configuration.deadline?.endDate ?? Date.now) ?? Date.now
         
-        return timeline
+        var expiredDeadlineCopy = configuration.deadline
+        expiredDeadlineCopy?.isExpired = true
+        
+        let countdownEntry = DeadlineCountdownEntry(date: Date.now, deadlineSummary: configuration.deadline)
+        let expiredEntry = DeadlineCountdownEntry(date: reloadTimelineDate, deadlineSummary: expiredDeadlineCopy)
+        
+        return Timeline(entries: [countdownEntry, expiredEntry], policy: .never)
     }
     
 }

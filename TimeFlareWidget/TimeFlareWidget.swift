@@ -40,6 +40,6 @@ struct TimeFlareWidget: Widget {
 #Preview(as: .systemSmall) {
     TimeFlareWidget()
 } timeline: {
-    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
-    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[0])
+    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[1])
+    DeadlineCountdownEntry(date: Date(), deadlineSummary: DeadlineSummary.sampleDeadlineSummaries[3])
 }

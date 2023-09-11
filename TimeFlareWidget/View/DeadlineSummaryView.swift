@@ -23,17 +23,7 @@ struct DeadlineSummaryView: View {
             
             Spacer()
             
-            if let countdownDate = associatedEntry.countdownDate {
-                DeadlineCountdownView(countdownDate: countdownDate)
-            }
-            
-            DeadlineDayAndYearView(
-                day: associatedEntry.daysInCountdown,
-                year: associatedEntry.yearsInCountdown
-            )
-            .foregroundStyle(Color.white)
-            .font(.system(size: 12))
-            .fontWeight(.semibold)
+            DeadlineSummaryBodyView(deadlineEntry: associatedEntry)
             
             Spacer()
             
