@@ -22,6 +22,8 @@ protocol DeadlineStorageProtocol {
 
 class DeadlineStorage: DeadlineStorageProtocol {
     
+    @Injected(\.widgetUpdateManager) private var widgetUpdateManager
+    
     private var modelContainer: ModelContainer?
     
     func setup() {
@@ -47,6 +49,7 @@ class DeadlineStorage: DeadlineStorageProtocol {
     
     @MainActor
     func delete(deadline: Deadline) {
+        widgetUpdateManager.setAsDirtyIfNeeded(affectedDeadline: deadline)
         modelContainer?.mainContext.delete(deadline)
     }
     

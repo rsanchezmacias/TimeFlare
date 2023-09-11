@@ -8,6 +8,7 @@
 import Foundation
 import SwiftData
 import SwiftUI
+import WidgetKit
 
 enum SortType: Int, CaseIterable {
     case ascendingDate
@@ -25,7 +26,8 @@ enum SortType: Int, CaseIterable {
 
 class DeadlineManager: ObservableObject {
     
-    @Injected(\.deadlineStorage) var storage
+    @Injected(\.deadlineStorage) private var storage
+    @Injected(\.deadlineSummaryFileService) private var fileService
     
     @Published var featuredDeadline: Deadline?
     @Published var allDeadlines: [Deadline] = []
@@ -37,6 +39,10 @@ class DeadlineManager: ObservableObject {
     init() {
         Task {
             await storage.setup()
+            
+            await MainActor.run {
+                self.refreshDeadlines()
+            }
         }
     }
     
@@ -69,6 +75,8 @@ class DeadlineManager: ObservableObject {
                 expiredDeadlines = allDeadlines.filter({ deadline in
                     deadline.endDate <= Date.now
                 })
+                
+                fileService.write(summaries: ongoingDeadlines.map { $0.toSummary() })
             }
         }
     }
@@ -127,7 +135,5 @@ class DeadlineManager: ObservableObject {
     func deleteAll() {
         print("Deleting all deadlines for the user...w")
     }
-    
-    // MARK: - Private, helper functions
     
 }

@@ -120,6 +120,10 @@ enum DeadlineSchemaV2: VersionedSchema {
             hasher.combine(id)
         }
         
+        func toSummary() -> DeadlineSummary {
+            return DeadlineSummary(id: id, title: title, description: body, endDate: endDate)
+        }
+        
     }
     
 }
