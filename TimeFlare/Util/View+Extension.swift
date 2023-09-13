@@ -46,4 +46,8 @@ extension View {
         )
     }
     
+    func squareFrame(side: CGFloat) -> some View {
+        return self.frame(width: side, height: side)
+    }
+    
 }

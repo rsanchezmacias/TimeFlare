@@ -19,15 +19,17 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
     
     @State private var pickingSortType: SortType = .ascendingDate
     
+    private let toolbarButtonSize: CGFloat = 30
+    
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
             LazyHStack {
                 Image.appIconTransparent
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(width: 44, height: 44)
+                    .frame(width: 40, height: 40)
                 Text("TimeFlare")
-                    .font(.system(size: 24))
+                    .font(.system(size: 20))
                     .bold()
                 Spacer()
             }
@@ -37,7 +39,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
             LazyHStack(alignment: .center) {
                 
                 if editMode?.wrappedValue == .inactive {
-                    Menu("Sort") {
+                    Menu {
                         Picker(selection: $pickingSortType) {
                             ForEach(SortType.allCases, id: \.self) { sortType in
                                 Text(sortType.displayText).tag(sortType.rawValue)
@@ -45,22 +47,41 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
                         } label: {
                             Label("Sort", systemImage: "arrow.up.arrow.down")
                         }
+                    } label: {
+                        Image(systemName: "list.bullet")
                     }
+                    .squareFrame(side: toolbarButtonSize)
+                    .toolbarButton()
                 }
                 
                 if editButtonVisible {
-                    EditButton()
+                    Button(action: {
+                        withAnimation {
+                            if editMode?.wrappedValue == .active {
+                                editMode?.wrappedValue = .inactive
+                            } else {
+                                editMode?.wrappedValue = .active
+                            }
+                        }
+                    }, label: {
+                        Image(systemName: (editMode?.wrappedValue == .inactive) ? "square.and.pencil" : "checkmark.square")
+                    })
+                    .squareFrame(side: toolbarButtonSize)
+                    .toolbarButton()
+                    .padding(.bottom, (editMode?.wrappedValue == .inactive) ? 3 : 0)
                 }
                 
                 if editMode?.wrappedValue == .inactive {
                     NavigationLink {
                         addDeadlineContent()
                     } label: {
-                        Text("Add")
+                        Image(systemName: "plus.app")
                     }
+                    .squareFrame(side: toolbarButtonSize)
+                    .toolbarButton()
                 }
             }
-            .animation(.none, value: UUID())
+            .animation(.easeOut, value: UUID())
             .onAppear(perform: {
                 pickingSortType = deadlineManager.sortBy
             })
@@ -69,6 +90,14 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
             }
             
         }
+    }
+    
+}
+
+extension View {
+    
+    func toolbarButton() -> some View {
+        self.foregroundColor(Color.charcoal)
     }
     
 }
