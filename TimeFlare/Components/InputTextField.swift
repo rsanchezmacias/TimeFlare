@@ -29,20 +29,12 @@ struct InputTextField: View {
             .font(.system(size: 14))
             .textInputAutocapitalization(nil)
             .focused($focused)
-            .toolbar {
-                if focused {
-                    ToolbarItem(placement: .keyboard) {
-                        HStack {
-                            Spacer()
-                            Button(action: {
-                                focused = false
-                            }, label: {
-                                Text("Done")
-                            })
-                        }
-                    }
+            .onChange(of: currentInput, { oldValue, newValue in
+                if let last = newValue.last, last.isNewline {
+                    focused = false
+                    currentInput = oldValue
                 }
-            }
+            })
             
             Rectangle()
                 .fill(focused ? Color.charcoal : Color.gray)

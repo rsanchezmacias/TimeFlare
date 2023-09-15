@@ -138,7 +138,12 @@ extension DeadlineDetails {
     private func onSave() {
         deadline.title = newTitleText
         deadline.body = newDescriptionText
-        deadline.endDate = newDeadlineDate
+        
+        if newDeadlineDate > Date.now {
+            deadline.endDate = newDeadlineDate
+        } else {
+            deadline.endDate = newDeadlineDate + TimeInterval(60)
+        }
         
         if newDeadlineUIImage != nil {
             deadline.imageData = newDeadlineUIImage?.toData()

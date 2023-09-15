@@ -17,6 +17,36 @@ enum DateComponent: CaseIterable, Hashable {
     static var orderedComponents: [DateComponent] {
         return [.seconds, .minutes, .hours, .days, .years]
     }
+    
+    var singularNoun: String {
+        switch self {
+        case .seconds:
+            return "second"
+        case .minutes:
+            return "minute"
+        case .hours:
+            return "hour"
+        case .days:
+            return "day"
+        case .years:
+            return "year"
+        }
+    }
+    
+    var pluralNoun: String {
+        switch self {
+        case .seconds:
+            return "seconds"
+        case .minutes:
+            return "minutes"
+        case .hours:
+            return "hours"
+        case .days:
+            return "days"
+        case .years:
+            return "years"
+        }
+    }
 }
 
 class DateUtil {
@@ -45,6 +75,31 @@ class DateUtil {
     
     static func secondsFrom(_ startingDate: Date, to endingDate: Date) -> Int? {
         return Self.allDateComponentsFrom(startingDate, to: endingDate).second
+    }
+    
+    /// Return the maximum date component currrently available in a date
+    static func getMaxDateComponenet(for date: Date) -> (DateComponent, Int) {
+        let dateComponents = Calendar.current.dateComponents([
+            .second,
+            .minute,
+            .hour,
+            .day,
+            .year
+        ], from: Date.now, to: date)
+        
+        if let years = dateComponents.year, years != 0 {
+            return (.years, years)
+        } else if let days = dateComponents.day, days != 0 {
+            return (.days, days)
+        } else if let hours = dateComponents.hour, hours != 0 {
+            return (.hours, hours)
+        } else if let minutes = dateComponents.minute, minutes != 0 {
+            return (.minutes, minutes)
+        } else if let seconds = dateComponents.second, seconds != 0 {
+            return (.seconds, seconds)
+        } else {
+            return (.seconds, 2)
+        }
     }
     
     /// Second, minute, hour date that can be used as a countdown relative to now.

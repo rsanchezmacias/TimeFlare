@@ -34,6 +34,7 @@
 		A96D99DE2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */; };
 		A96D99E02AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */; };
 		A96D99E22AA831ED00D30AD0 /* SnapshotDateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */; };
+		A97D4DF92AB294D400E1F720 /* DeadlineRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */; };
 		A98F287C2A99CB67002585F5 /* TimeFlareApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */; };
 		A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98F287D2A99CB67002585F5 /* MainContentView.swift */; };
 		A98F28802A99CB6C002585F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
@@ -157,6 +158,7 @@
 		A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetailsTitle.swift; sourceTree = "<group>"; };
 		A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetailCountdownView.swift; sourceTree = "<group>"; };
 		A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotDateView.swift; sourceTree = "<group>"; };
+		A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineRowModel.swift; sourceTree = "<group>"; };
 		A98F287B2A99CB67002585F5 /* TimeFlareApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeFlareApp.swift; sourceTree = "<group>"; };
 		A98F287D2A99CB67002585F5 /* MainContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainContentView.swift; sourceTree = "<group>"; };
 		A98F287F2A99CB6C002585F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */,
 				A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */,
 				A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */,
+				A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -629,6 +632,7 @@
 				A9BD67552AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */,
 				A9135B4D2AAAE85000B5D628 /* WidgetUpdateManager.swift in Sources */,
+				A97D4DF92AB294D400E1F720 /* DeadlineRowModel.swift in Sources */,
 				A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */,
 				A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */,
 				A9A178182A9D2ED4000B62A7 /* Data+Extension.swift in Sources */,

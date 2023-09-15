@@ -58,7 +58,7 @@ struct NewDeadlineForm: View {
             .toolbar(content: {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     Button(action: {
-                        self.addDummyDeadline()
+                        self.addDeadline()
                         presentationMode.wrappedValue.dismiss()
                     }, label: {
                         Text("Done")
@@ -73,12 +73,14 @@ struct NewDeadlineForm: View {
 
 extension NewDeadlineForm {
     
-    func addDummyDeadline() {
+    func addDeadline() {
+        let endDate = deadlineDate > Date.now ? deadlineDate : Date(timeIntervalSinceNow: 60)
+        
         deadlineManager.save(
             deadline: Deadline(
                 title: titleText,
                 body: bodyText,
-                endDate: deadlineDate,
+                endDate: endDate,
                 creationDate: Date.now,
                 imageData: deadlineImage?.toData()
             )
