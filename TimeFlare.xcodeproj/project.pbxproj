@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A9076C5F2AB507B90080BCA4 /* BubbleCountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9076C5E2AB507B90080BCA4 /* BubbleCountdownTimer.swift */; };
 		A9135B4B2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */; };
 		A9135B4D2AAAE85000B5D628 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */; };
 		A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
@@ -49,6 +50,8 @@
 		A9A1781D2A9D34C0000B62A7 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */; };
 		A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */; };
 		A9A7A0012AA30A3400C3FCAA /* EmptyDeadlinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A7A0002AA30A3400C3FCAA /* EmptyDeadlinesView.swift */; };
+		A9B71C692AB8F03F0049061D /* BubbleDateComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B71C682AB8F03F0049061D /* BubbleDateComponentView.swift */; };
+		A9B71C6B2AB8F0590049061D /* DateItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B71C6A2AB8F0590049061D /* DateItem.swift */; };
 		A9B774972A9FE7310037E598 /* DeadlineDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B774962A9FE7310037E598 /* DeadlineDetails.swift */; };
 		A9B7749C2AA0558A0037E598 /* CountdownDateTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */; };
 		A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
@@ -134,6 +137,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A9076C5E2AB507B90080BCA4 /* BubbleCountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleCountdownTimer.swift; sourceTree = "<group>"; };
 		A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDeepLinkModel.swift; sourceTree = "<group>"; };
 		A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryFileService.swift; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 		A9A1781C2A9D34C0000B62A7 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
 		A9A1781F2A9D3721000B62A7 /* DashboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardToolbar.swift; sourceTree = "<group>"; };
 		A9A7A0002AA30A3400C3FCAA /* EmptyDeadlinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyDeadlinesView.swift; sourceTree = "<group>"; };
+		A9B71C682AB8F03F0049061D /* BubbleDateComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleDateComponentView.swift; sourceTree = "<group>"; };
+		A9B71C6A2AB8F0590049061D /* DateItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateItem.swift; sourceTree = "<group>"; };
 		A9B774962A9FE7310037E598 /* DeadlineDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDetails.swift; sourceTree = "<group>"; };
 		A9B7749B2AA0558A0037E598 /* CountdownDateTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownDateTimer.swift; sourceTree = "<group>"; };
 		A9B7749D2AA056900037E598 /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
@@ -353,6 +359,7 @@
 				A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */,
 				A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */,
 				A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */,
+				A9B71C6A2AB8F0590049061D /* DateItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -364,6 +371,8 @@
 				A9B774962A9FE7310037E598 /* DeadlineDetails.swift */,
 				A96D99DD2AA82B4D00D30AD0 /* DeadlineDetailsTitle.swift */,
 				A96D99DF2AA82D1400D30AD0 /* DeadlineDetailCountdownView.swift */,
+				A9076C5E2AB507B90080BCA4 /* BubbleCountdownTimer.swift */,
+				A9B71C682AB8F03F0049061D /* BubbleDateComponentView.swift */,
 			);
 			path = Deadline_Details;
 			sourceTree = "<group>";
@@ -594,10 +603,12 @@
 				A96D99D22AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift in Sources */,
 				A9BD67582AAA512500C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
 				A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */,
+				A9076C5F2AB507B90080BCA4 /* BubbleCountdownTimer.swift in Sources */,
 				A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
 				A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */,
 				A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */,
+				A9B71C6B2AB8F0590049061D /* DateItem.swift in Sources */,
 				A98F287E2A99CB67002585F5 /* MainContentView.swift in Sources */,
 				A9135B522AAAF06A00B5D628 /* TimeFlareWidgetConfigurationIntent.swift in Sources */,
 				A9200BAC2A9EAE1B0017C9BA /* NonEditingImagePickerView.swift in Sources */,
@@ -628,6 +639,7 @@
 				A9B774A02AA05A330037E598 /* Int+Extension.swift in Sources */,
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
+				A9B71C692AB8F03F0049061D /* BubbleDateComponentView.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
 				A9BD67552AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */,

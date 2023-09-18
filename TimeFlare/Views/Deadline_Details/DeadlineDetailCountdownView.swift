@@ -14,35 +14,43 @@ struct DeadlineDetailCountdownView: View {
     var body: some View {
         
         HStack {
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: 16) {
                 if deadline.endDate > Date.now {
-                    Text("Time left in deadline")
+                    Text("Time left..")
                         .font(.system(size: 16, weight: .bold))
-                    CountdownDateTimer(endDate: deadline.endDate)
-                        .font(.system(size: 14))
-                        .fontWeight(.semibold)
+                        .foregroundStyle(.metal)
+                        .padding(.bottom, -4)
+                    CenteredHStack {
+                        BubbleCountdownTimer(date: deadline.endDate, bubbleSize: 70)
+                    }
+                    .padding(.bottom)
                 } else {
-                    VStack {
+                    VStack(alignment: .leading) {
                         HStack {
                             Image(systemName: "exclamationmark.circle")
-                            Text("This deadline ended")
+                            Text("This deadline is over")
                         }
-                        .fontWeight(.bold)
-                        SnapshotDateView(endDate: deadline.endDate)
+                        .font(.system(size: 18, weight: .bold))
+                        .padding()
                         
-                        (Text("ago on ") + Text(deadline.endDate, format: .dateTime).fontWeight(.bold))
-                            .padding(.leading, 60)
+                        (Text("It ended on ")
+                         + Text(deadline.endDate, format: .dateTime)
+                         + Text(". Feel free to delete it or edit the deadline date to add more time")
+                            .fontWeight(.bold))
+                        .padding(.bottom)
+                        .padding([.leading, .trailing], 20)
                     }
+                    .padding()
                     .font(.system(size: 14))
                     .fontWeight(.semibold)
-                    .foregroundColor(.red)
+                    .foregroundStyle(Color.metal)
+                    .background(Color.gray.opacity(0.2))
+                    .clipShape(.rect(cornerRadius: 8))
                 }
             }
-            .padding()
+            
             Spacer()
         }
-        .background(Color.gray.opacity(0.4))
-        .clipShape(.rect(cornerRadius: 8))
         
     }
 }
