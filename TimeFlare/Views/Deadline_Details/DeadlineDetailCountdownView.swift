@@ -12,7 +12,6 @@ struct DeadlineDetailCountdownView: View {
     var deadline: Deadline
     
     @State private var isExpired: Bool = false
-    
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
@@ -29,27 +28,29 @@ struct DeadlineDetailCountdownView: View {
                     }
                     .padding(.bottom)
                 } else {
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Image(systemName: "exclamationmark.circle")
-                            Text("This deadline is over")
+                    CenteredHStack {
+                        VStack(alignment: .leading) {
+                            HStack {
+                                Image(systemName: "exclamationmark.circle")
+                                Text("This deadline is over")
+                            }
+                            .font(.system(size: 18, weight: .bold))
+                            .padding()
+                            
+                            (Text("It ended on ")
+                             + Text(deadline.endDate, format: .dateTime)
+                             + Text(". Feel free to delete it or edit the deadline date to add more time")
+                                .fontWeight(.bold))
+                            .padding(.bottom)
+                            .padding([.leading, .trailing], 20)
                         }
-                        .font(.system(size: 18, weight: .bold))
                         .padding()
-                        
-                        (Text("It ended on ")
-                         + Text(deadline.endDate, format: .dateTime)
-                         + Text(". Feel free to delete it or edit the deadline date to add more time")
-                            .fontWeight(.bold))
-                        .padding(.bottom)
-                        .padding([.leading, .trailing], 20)
+                        .font(.system(size: 14))
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color.metal)
+                        .background(Color.gray.opacity(0.2))
+                        .clipShape(.rect(cornerRadius: 8))
                     }
-                    .padding()
-                    .font(.system(size: 14))
-                    .fontWeight(.semibold)
-                    .foregroundStyle(Color.metal)
-                    .background(Color.gray.opacity(0.2))
-                    .clipShape(.rect(cornerRadius: 8))
                 }
             }
             
