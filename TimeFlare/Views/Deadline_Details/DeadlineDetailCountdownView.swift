@@ -11,11 +11,15 @@ struct DeadlineDetailCountdownView: View {
     
     var deadline: Deadline
     
+    @State private var isExpired: Bool = false
+    
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     var body: some View {
         
         HStack {
             VStack(alignment: .leading, spacing: 16) {
-                if deadline.endDate > Date.now {
+                if !isExpired {
                     Text("Time left..")
                         .font(.system(size: 16, weight: .bold))
                         .foregroundStyle(.metal)
@@ -51,8 +55,31 @@ struct DeadlineDetailCountdownView: View {
             
             Spacer()
         }
+        .onAppear(perform: {
+            checkIfTimerIsExpired()
+        })
+        .onReceive(timer) { _ in
+            checkIfTimerIsExpired()
+        }
         
     }
+    
+    private func checkIfTimerIsExpired() {
+        withAnimation {
+            isExpired = deadline.endDate <= Date.now
+        }
+        
+        if isExpired {
+            timer.upstream.connect().cancel()
+        } else {
+            timer = Timer.publish(
+                every: deadline.endDate.timeIntervalSinceNow,
+                on: .main,
+                in: .common
+            ).autoconnect()
+        }
+    }
+    
 }
 
 #Preview {

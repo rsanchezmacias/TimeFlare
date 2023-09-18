@@ -207,7 +207,7 @@ extension DeadlineDetails {
     let manager = DeadlineManager(container: container)
     
     return NavigationStack(root: {
-        DeadlineDetails(deadline: deadlines[4])
+        DeadlineDetails(deadline: deadlines[5])
     })
     .environmentObject(manager)
 }
