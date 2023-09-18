@@ -44,6 +44,22 @@ class SampleDeadline {
                 creationDate: Date.now,
                 imageData: sampleImageData,
                 featured: true
+            ),
+            Deadline(
+                title: "UC Merced",
+                body: "Test for bubble countdown",
+                endDate: Date.now + TimeInterval(64 + 3545 + 82800),
+                creationDate: Date.now,
+                imageData: sampleImageData,
+                featured: true
+            ),
+            Deadline(
+                title: "UC Merced",
+                body: "Test for bubble countdown",
+                endDate: Date.now + TimeInterval(3),
+                creationDate: Date.now,
+                imageData: sampleImageData,
+                featured: true
             )
         ]
     }

@@ -27,7 +27,7 @@ struct ImageThumbnail: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.gray.opacity(0.4))
+                .fill(Color.gray)
             PrimaryWithSecondaryView(primary: {
                 image?
                     .resizable()

@@ -11,34 +11,39 @@ struct CountdownDateTimer: View {
     
     var endDate: Date
     
-    @State private var secondsText: String?
-    @State private var minutesText: String?
-    @State private var hoursText: String?
-    @State private var daysText: String?
-    @State private var yearsText: String?
+    @State private var seconds: Int?
+    @State private var minutes: Int?
+    @State private var hours: Int?
+    @State private var days: Int?
+    @State private var years: Int?
     
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
     var body: some View {
         VStack(alignment: .leading) {
-            if let secondsText {
-                Text(secondsText)
+            if let seconds = seconds {
+                Text("\(seconds) ") + 
+                Text(DateComponent.getNounForDateComponent(.seconds, value: seconds))
             }
             
-            if let minutesText {
-                Text(minutesText)
+            if let minutes = minutes {
+                Text("\(minutes) ") + 
+                Text(DateComponent.getNounForDateComponent(.minutes, value: minutes))
             }
             
-            if let hoursText {
-                Text(hoursText)
+            if let hours = hours {
+                Text("\(hours) ") + 
+                Text(DateComponent.getNounForDateComponent(.hours, value: hours))
             }
             
-            if let daysText {
-                Text(daysText)
+            if let days = days {
+                Text("\(days) ") + 
+                Text(DateComponent.getNounForDateComponent(.days, value: days))
             }
             
-            if let yearsText {
-                Text(yearsText)
+            if let years = years {
+                Text("\(years) ") + 
+                Text(DateComponent.getNounForDateComponent(.years, value: years))
             }
         }
         .onReceive(timer, perform: { _ in
@@ -50,18 +55,18 @@ struct CountdownDateTimer: View {
     }
     
     private func onTimerFired() {
-        let formattedDateComponets = DateUtil.formattedDateComponentsFrom(
+        let dateComponents = DateUtil.orderedDateComponents(
             Date.now,
             to: endDate,
             components: [.seconds, .minutes, .hours, .days, .years],
             filterMissingComponents: true
         )
         
-        secondsText = formattedDateComponets[.seconds]
-        minutesText = formattedDateComponets[.minutes]
-        hoursText = formattedDateComponets[.hours]
-        daysText = formattedDateComponets[.days]
-        yearsText = formattedDateComponets[.years]
+        seconds = dateComponents[.seconds]
+        minutes = dateComponents[.minutes]
+        hours = dateComponents[.hours]
+        days = dateComponents[.days]
+        years = dateComponents[.years]
     }
 }
 

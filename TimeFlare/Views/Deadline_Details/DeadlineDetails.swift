@@ -7,6 +7,41 @@
 
 import SwiftUI
 
+struct DeadlineDetailsImageView: View {
+    
+    var image: Image?
+    var frameSize: CGFloat
+    
+    @Binding var editing: Bool
+    @Binding var pickedUIImage: UIImage?
+    
+    var body: some View {
+        
+        ZStack {
+            Rectangle()
+                .fill(Color.metal)
+                .opacity(0.2)
+                .frame(width: frameSize, height: frameSize)
+                .clipShape(.rect(cornerRadius: 8))
+                .offset(x: 3, y: 3)
+            
+            CenteredHStack {
+                ImageThumbnail(image: image)
+                    .frame(width: frameSize, height: frameSize)
+                    .overlay {
+                        if editing {
+                            ImagePickerView(selectedUIImage: $pickedUIImage)
+                        }
+                    }
+                    
+            }
+            .offset(x: -3, y: -3)
+        }
+        
+    }
+    
+}
+
 struct DeadlineDetails: View {
     
     var deadline: Deadline
@@ -28,18 +63,15 @@ struct DeadlineDetails: View {
     
     var body: some View {
         GeometryReader(content: { geometry in
-            ScrollView {
+            ScrollView(.vertical) {
                 VStack(alignment: .leading, spacing: 24) {
                     
-                    CenteredHStack {
-                        ImageThumbnail(image: newDeadlineImage ?? deadline.image)
-                            .frame(width: geometry.size.width * 0.75, height: geometry.size.width * 0.75)
-                            .overlay {
-                                if editing {
-                                    ImagePickerView(selectedUIImage: $newDeadlineUIImage)
-                                }
-                            }
-                    }
+                    DeadlineDetailsImageView(
+                        image: newDeadlineImage ?? deadline.image,
+                        frameSize: geometry.size.width * 0.75,
+                        editing: $editing,
+                        pickedUIImage: $newDeadlineUIImage
+                    )
                     
                     VStack(alignment: .leading, spacing: editing ? 16 : 8) {
                         
@@ -73,6 +105,7 @@ struct DeadlineDetails: View {
                             }
                         }, showPrimary: editing)
                     }
+                    .padding(.top, 24)
                     
                     PrimaryWithSecondaryView(primary: {
                         InputDatePicker(
@@ -81,13 +114,14 @@ struct DeadlineDetails: View {
                             subtitleLabel: "Updated date:"
                         )
                     }, secondary: {
+                        Divider()
                         DeadlineDetailCountdownView(deadline: deadline)
                     }, showPrimary: editing)
                     
                     Spacer()
                 }
                 .padding([.leading, .trailing], 32)
-                .padding(.top, 40)
+                .padding(.top, 48)
                 .toolbar {
                     if !editing {
                         ToolbarItem(placement: .topBarTrailing) {
@@ -138,7 +172,12 @@ extension DeadlineDetails {
     private func onSave() {
         deadline.title = newTitleText
         deadline.body = newDescriptionText
-        deadline.endDate = newDeadlineDate
+        
+        if newDeadlineDate > Date.now {
+            deadline.endDate = newDeadlineDate
+        } else {
+            deadline.endDate = newDeadlineDate + TimeInterval(60)
+        }
         
         if newDeadlineUIImage != nil {
             deadline.imageData = newDeadlineUIImage?.toData()
@@ -168,7 +207,7 @@ extension DeadlineDetails {
     let manager = DeadlineManager(container: container)
     
     return NavigationStack(root: {
-        DeadlineDetails(deadline: deadlines[0])
+        DeadlineDetails(deadline: deadlines[5])
     })
     .environmentObject(manager)
 }

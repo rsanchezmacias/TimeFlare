@@ -12,6 +12,13 @@ struct DeadlineRow: View {
     
     var deadline: Deadline
     
+    private var model: DeadlineRowModel
+    
+    init(deadline: Deadline) {
+        self.deadline = deadline
+        model = DeadlineRowModel(date: deadline.endDate)
+    }
+    
     var body: some View {
         HStack(alignment: .center, spacing: 16, content: {
             
@@ -19,12 +26,21 @@ struct DeadlineRow: View {
                 .frame(width: 70, height: 70)
             
             VStack(alignment: .leading, spacing: 4, content: {
+                                
                 Text(deadline.title)
                     .font(.headline)
-                if let body = deadline.body {
-                    Text(body)
-                        .font(.subheadline)
+                
+                if deadline.endDate > Date.now {
+                    Text("\(model.maxDateNumber) \(model.maxDateNumberText)")
+                        .font(.caption)
+                        .bold()
                 }
+                
+                if let body = deadline.body, !body.isEmpty {
+                    Text(body)
+                        .font(.caption)
+                }
+                
             })
             .lineLimit(0)
         })
@@ -35,6 +51,6 @@ struct DeadlineRow: View {
 #Preview {
     let container = SampleDeadline.sampleDeadlineContainer
     
-    return DeadlineRow(deadline: SampleDeadline.sampleDeadlines[2])
+    return DeadlineRow(deadline: SampleDeadline.sampleDeadlines[1])
         .modelContainer(container)
 }

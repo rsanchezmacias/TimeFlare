@@ -11,12 +11,20 @@ struct FeaturedDeadlineInfo: View {
     
     var deadline: Deadline
     
+    @State private var isExpired: Bool = false
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
     private var gradient: LinearGradient {
         .linearGradient(
             Gradient(colors: [.black.opacity(0.9), .black.opacity(0)]),
             startPoint: .bottom,
             endPoint: .top
         )
+    }
+    
+    init(deadline: Deadline) {
+        self.deadline = deadline
+        isExpired = deadline.endDate <= Date.now
     }
     
     var body: some View {
@@ -44,10 +52,17 @@ struct FeaturedDeadlineInfo: View {
                         .frame(width: 2)
                         .padding([.top, .bottom])
                     
-                    CountdownDateTimer(endDate: deadline.endDate)
-                        .font(.system(size: 14))
-                        .frame(width: min(geometry.size.width * 0.40, 80))
-                        .padding(.trailing, 16)
+                    if !isExpired {
+                        CountdownDateTimer(endDate: deadline.endDate)
+                            .font(.system(size: 14))
+                            .frame(width: min(geometry.size.width * 0.40, 80))
+                            .padding(.trailing, 16)
+                    } else {
+                        Text("Deadline is over.")
+                            .font(.system(size: 14))
+                            .frame(width: min(geometry.size.width * 0.40, 80))
+                    }
+                    
                 })
                 .bold()
                 .frame(width: geometry.size.width)
@@ -55,12 +70,32 @@ struct FeaturedDeadlineInfo: View {
                 .background(Color.black.opacity(0.3))
             }
         }
+        .onReceive(timer) { _ in
+            checkIfTimerIsExpired()
+        }
+        .onAppear {
+            checkIfTimerIsExpired()
+        }
+    }
+    
+    private func checkIfTimerIsExpired() {
+        isExpired = deadline.endDate <= Date.now + 3
+        
+        if isExpired {
+            timer.upstream.connect().cancel()
+        } else {
+            timer = Timer.publish(
+                every: deadline.endDate.timeIntervalSinceNow - 1,
+                on: .main,
+                in: .common
+            ).autoconnect()
+        }
     }
     
 }
 
 #Preview {
     let manager = DeadlineManager(container: SampleDeadline.sampleDeadlineContainer)
-    return FeaturedDeadlineInfo(deadline: SampleDeadline.sampleDeadlines[0])
+    return FeaturedDeadlineInfo(deadline: SampleDeadline.sampleDeadlines[5])
         .environmentObject(manager)
 }

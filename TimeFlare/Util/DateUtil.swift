@@ -17,6 +17,44 @@ enum DateComponent: CaseIterable, Hashable {
     static var orderedComponents: [DateComponent] {
         return [.seconds, .minutes, .hours, .days, .years]
     }
+    
+    static var timerComponents: [DateComponent] {
+        return [.seconds, .minutes, .hours]
+    }
+    
+    var singularNoun: String {
+        switch self {
+        case .seconds:
+            return "second"
+        case .minutes:
+            return "minute"
+        case .hours:
+            return "hour"
+        case .days:
+            return "day"
+        case .years:
+            return "year"
+        }
+    }
+    
+    var pluralNoun: String {
+        switch self {
+        case .seconds:
+            return "seconds"
+        case .minutes:
+            return "minutes"
+        case .hours:
+            return "hours"
+        case .days:
+            return "days"
+        case .years:
+            return "years"
+        }
+    }
+    
+    static func getNounForDateComponent(_ component: DateComponent, value: Int) -> String {
+        return value.noun(singular: component.singularNoun, plural: component.pluralNoun)
+    }
 }
 
 class DateUtil {
@@ -47,6 +85,31 @@ class DateUtil {
         return Self.allDateComponentsFrom(startingDate, to: endingDate).second
     }
     
+    /// Return the maximum date component currrently available in a date
+    static func getMaxDateComponenet(for date: Date) -> (DateComponent, Int) {
+        let dateComponents = Calendar.current.dateComponents([
+            .second,
+            .minute,
+            .hour,
+            .day,
+            .year
+        ], from: Date.now, to: date)
+        
+        if let years = dateComponents.year, years != 0 {
+            return (.years, years)
+        } else if let days = dateComponents.day, days != 0 {
+            return (.days, days)
+        } else if let hours = dateComponents.hour, hours != 0 {
+            return (.hours, hours)
+        } else if let minutes = dateComponents.minute, minutes != 0 {
+            return (.minutes, minutes)
+        } else if let seconds = dateComponents.second, seconds != 0 {
+            return (.seconds, seconds)
+        } else {
+            return (.seconds, 2)
+        }
+    }
+    
     /// Second, minute, hour date that can be used as a countdown relative to now.
     static func getCountdownDate(for date: Date) -> Date? {
         let dateComponentsForCountdown = Calendar.current.dateComponents([
@@ -69,45 +132,39 @@ class DateUtil {
     
     // MARK: - Formatting
     
-    static func formattedDateComponentsFrom(
+    static func orderedDateComponents(
         _ startingDate: Date,
         to endingDate: Date,
         components: [DateComponent],
         filterMissingComponents: Bool = false,
         removeNegativeSign: Bool = true
-    ) -> [DateComponent: String] {
-        var formattedDateComponents: [DateComponent: String] = [:]
+    ) -> [DateComponent: Int] {
         var dateComponentToValueMap: [DateComponent: Int] = [:]
         let dateComponents = Self.allDateComponentsFrom(startingDate, to: endingDate)
         
         if let seconds = dateComponents.second, components.contains(.seconds) {
             let secondsToDisplay = removeNegativeSign ? abs(seconds): seconds
             dateComponentToValueMap[.seconds] = secondsToDisplay
-            formattedDateComponents[.seconds] = "\(secondsToDisplay) \(secondsToDisplay.noun(singular: "second", plural: "seconds"))"
         }
         
         if let minutes = dateComponents.minute, components.contains(.minutes) {
             let minutesToDisplay = removeNegativeSign ? abs(minutes): minutes
             dateComponentToValueMap[.minutes] = minutesToDisplay
-            formattedDateComponents[.minutes] = "\(minutesToDisplay) \(minutesToDisplay.noun(singular: "minute", plural: "minutes"))"
         }
         
         if let hours = dateComponents.hour, components.contains(.hours) {
             let hoursToDisplay = removeNegativeSign ? abs(hours): hours
             dateComponentToValueMap[.hours] = hoursToDisplay
-            formattedDateComponents[.hours] = "\(hoursToDisplay) \(hoursToDisplay.noun(singular: "hour", plural: "hours"))"
         }
         
         if let days = dateComponents.day, components.contains(.days) {
             let daysToDisplay = removeNegativeSign ? abs(days): days
             dateComponentToValueMap[.days] = daysToDisplay
-            formattedDateComponents[.days] = "\(daysToDisplay) \(daysToDisplay.noun(singular: "day", plural: "days"))"
         }
         
         if let years = dateComponents.year, components.contains(.years) {
             let yearsToDisplay = removeNegativeSign ? abs(years): years
             dateComponentToValueMap[.years] = yearsToDisplay
-            formattedDateComponents[.years] = "\(yearsToDisplay) \(yearsToDisplay.noun(singular: "year", plural: "years"))"
         }
         
         if filterMissingComponents {
@@ -116,11 +173,11 @@ class DateUtil {
                     break
                 }
                 
-                formattedDateComponents[dateComponent] = nil
+                dateComponentToValueMap[dateComponent] = nil
             }
         }
         
-        return formattedDateComponents
+        return dateComponentToValueMap
     }
     
 }

@@ -13,20 +13,24 @@ struct DeadlineDetailsTitle: View {
     var starAction: Thunk
     
     var body: some View {
-        HStack {
-            Text(deadline.title)
-                .font(.system(size: 18, weight: .bold))
-            Spacer()
-            Button {
-                starAction()
-            } label: {
-                Label(
-                    "Set as featured deadline",
-                    systemImage: deadline.featured ? "star.fill" : "star"
-                )
-                .labelStyle(.iconOnly)
-                .foregroundStyle(Color.yellow)
+        VStack(alignment: .leading, spacing: 4) {
+            HStack {
+                Text(deadline.title)
+                    .font(.system(size: 18, weight: .bold))
+                Spacer()
+                Button {
+                    starAction()
+                } label: {
+                    Label(
+                        "Set as featured deadline",
+                        systemImage: deadline.featured ? "star.fill" : "star"
+                    )
+                    .labelStyle(.iconOnly)
+                    .foregroundStyle(Color.yellow)
+                }
             }
+            Text(deadline.endDate, format: .dateTime)
+                .font(.system(size: 12, weight: .semibold))
         }
     }
     
