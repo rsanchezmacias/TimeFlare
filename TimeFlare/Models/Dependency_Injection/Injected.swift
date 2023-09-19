@@ -2,7 +2,7 @@
 //  InjectionKey.swift
 //  TimeFlare
 //
-//  Created by Ricardo Sanchez-Macias on 8/28/23.
+//  Source: https://www.avanderlee.com/swift/property-wrappers/
 //
 
 import Foundation
