@@ -26,6 +26,7 @@ class DeadlineStorage: DeadlineStorageProtocol {
     
     private var modelContainer: ModelContainer?
     
+    @MainActor
     func setup() {
         self.modelContainer = try? ModelContainer(
             for: Deadline.self,

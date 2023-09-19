@@ -11,8 +11,11 @@ import SwiftData
 struct DeadlineDashboard: View {
     
     @EnvironmentObject private var deadlineManager: DeadlineManager
+    @State private var editMode = EditMode.inactive
     
     @State private var editButtonVisible: Bool = false
+    @State private var sortButtonVisible: Bool = false
+    
     @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
     @ObservedObject private var deepLinkModel = DeadlineDeepLinkModel()
@@ -62,7 +65,8 @@ struct DeadlineDashboard: View {
                     addDeadlineContent: {
                         NewDeadlineForm()
                     },
-                    editButtonVisible: $editButtonVisible
+                    editButtonVisible: $editButtonVisible,
+                    sortButtonVisible: $sortButtonVisible
                 )
             }
             .overlay {
@@ -86,7 +90,13 @@ struct DeadlineDashboard: View {
             }
             .onChange(of: deadlineManager.allDeadlines, initial: false) { _, _ in
                 editButtonVisible = !deadlineManager.allDeadlines.isEmpty
+                sortButtonVisible = !deadlineManager.allDeadlines.isEmpty
+                
+                if editMode == .active && deadlineManager.allDeadlines.isEmpty {
+                    editMode = .inactive
+                }
             }
+            .environment(\.editMode, $editMode)
             .onOpenURL { url in
                 deepLinkModel.handleDeepLink(url: url, deadlines: deadlineManager.allDeadlines)
             }

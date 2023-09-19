@@ -16,6 +16,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
     @Environment(\.editMode) private var editMode
     
     @Binding var editButtonVisible: Bool
+    @Binding var sortButtonVisible: Bool
     
     @State private var pickingSortType: SortType = .ascendingDate
     
@@ -38,7 +39,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
         ToolbarItemGroup(placement: .topBarTrailing) {
             LazyHStack(alignment: .center) {
                 
-                if editMode?.wrappedValue == .inactive {
+                if sortButtonVisible && editMode?.wrappedValue == .inactive {
                     Menu {
                         Picker(selection: $pickingSortType) {
                             ForEach(SortType.allCases, id: \.self) { sortType in
@@ -107,9 +108,11 @@ extension View {
     return NavigationStack(root: {
         Text("PlaceHolder")
             .toolbar(content: {
-                DashboardToolbar(addDeadlineContent: {
-                    Text("Add")
-                }, editButtonVisible: .constant(true))
+                DashboardToolbar(
+                    addDeadlineContent: { Text("Add") },
+                    editButtonVisible: .constant(true),
+                    sortButtonVisible: .constant(true)
+                )
             })
             .environmentObject(deadlineManager)
     })
