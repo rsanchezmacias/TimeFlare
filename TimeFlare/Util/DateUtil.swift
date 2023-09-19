@@ -110,15 +110,15 @@ class DateUtil {
         }
     }
     
-    /// Second, minute, hour date that can be used as a countdown relative to now.
-    static func getCountdownDate(for date: Date) -> Date? {
+    /// Second, minute, hour date that can be used as a countdown relative to now or some other starting date
+    static func getCountdownDate(for date: Date, startingDate: Date = Date.now) -> Date? {
         let dateComponentsForCountdown = Calendar.current.dateComponents([
             .second,
             .minute,
             .hour,
             .day,
             .year
-        ], from: Date.now, to: date)
+        ], from: startingDate, to: date)
         
         return Calendar.current.date(
             byAdding: DateComponents(
@@ -126,7 +126,7 @@ class DateUtil {
                 minute: dateComponentsForCountdown.minute,
                 second: dateComponentsForCountdown.second
             ),
-            to: Date.now
+            to: startingDate
         )
     }
     

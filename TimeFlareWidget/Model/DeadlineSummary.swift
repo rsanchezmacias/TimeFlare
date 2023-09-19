@@ -16,7 +16,20 @@ struct DeadlineSummary: AppEntity, Codable {
     let id: UUID
     let title: String
     let description: String?
+    
+    /// The actual end date for the deadline
     let endDate: Date
+    
+    /// Date used to display countdown on widget. It is used to help display a dynamic timer on the widget
+    var startingDate: Date
+    
+    init(id: UUID, title: String, description: String?, endDate: Date) {
+        self.id = id
+        self.title = title
+        self.description = description
+        self.endDate = endDate
+        self.startingDate = Date.now
+    }
     
     var deepLinkURL: URL {
         return DeepLink.showURL(deadlineId: id)

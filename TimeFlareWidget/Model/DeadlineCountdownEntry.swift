@@ -42,7 +42,7 @@ extension DeadlineCountdownEntry {
     
     private func getCountdownDate() -> Date? {
         guard let summary = deadlineSummary else { return nil }
-        return DateUtil.getCountdownDate(for: summary.endDate)
+        return DateUtil.getCountdownDate(for: summary.endDate, startingDate: summary.startingDate)
     }
     
     private func getCountdownDays() -> Int? {
@@ -53,14 +53,14 @@ extension DeadlineCountdownEntry {
             .hour,
             .day,
             .year
-        ], from: Date.now, to: summary.endDate)
+        ], from: summary.startingDate, to: summary.endDate)
         
         return dateComponents.day
     }
     
     private func getCountdownYears() -> Int? {
         guard let summary = deadlineSummary else { return nil }
-        return Calendar.current.dateComponents([.year], from: Date.now, to: summary.endDate).year
+        return Calendar.current.dateComponents([.year], from: summary.startingDate, to: summary.endDate).year
     }
     
 }
