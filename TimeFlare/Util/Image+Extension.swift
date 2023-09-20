@@ -14,6 +14,18 @@ extension Image {
         return Image("logo_transparent")
     }
     
+    static var onboardingAddDeadline: Image {
+        return Image("onboarding_add")
+    }
+    
+    static var onboardingAddImage: Image {
+        return Image("onboarding_image")
+    }
+    
+    static var onboardingWidget: Image {
+        return Image("onboarding_widget")
+    }
+    
     public func deadlineThumbnail() -> some View {
         return self
             .resizable()

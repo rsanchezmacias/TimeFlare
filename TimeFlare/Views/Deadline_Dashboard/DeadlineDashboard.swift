@@ -11,13 +11,16 @@ import SwiftData
 struct DeadlineDashboard: View {
     
     @EnvironmentObject private var deadlineManager: DeadlineManager
+    
     @State private var editMode = EditMode.inactive
     
     @State private var editButtonVisible: Bool = false
     @State private var sortButtonVisible: Bool = false
     
+    @State private var showOnboardingView: Bool = false
     @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
+    private var appLaunchModel = AppLaunchModel()
     @ObservedObject private var deepLinkModel = DeadlineDeepLinkModel()
     
     var body: some View {
@@ -75,6 +78,15 @@ struct DeadlineDashboard: View {
                     .offset(y: -150)
                 }
             }
+            .overlay {
+                if showOnboardingView {
+                    WelcomeView(mainAction: {
+                        withAnimation {
+                            showOnboardingView = false
+                        }
+                    })
+                }
+            }
             .deleteExpiredDeadlinesAlert(
                 isPresented: $showConfirmationForDeletingOldDeadlines,
                 title: "Are you sure you want to delete all expired deadlines?",
@@ -87,6 +99,13 @@ struct DeadlineDashboard: View {
             )
             .onAppear {
                 deadlineManager.refreshDeadlines()
+                
+                if !appLaunchModel.hasSeenAppBefore {
+                    appLaunchModel.setUserHasLaunchedTheApplication()
+                    withAnimation {
+                        showOnboardingView = true
+                    }
+                }
             }
             .onChange(of: deadlineManager.allDeadlines, initial: false) { _, _ in
                 editButtonVisible = !deadlineManager.allDeadlines.isEmpty
