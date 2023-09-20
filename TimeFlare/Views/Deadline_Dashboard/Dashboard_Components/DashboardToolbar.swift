@@ -13,9 +13,10 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
     @EnvironmentObject private var deadlineManager: DeadlineManager
     
     @ViewBuilder var addDeadlineContent: () -> Content
-    @Environment(\.editMode) private var editMode
     
+    @Binding var editMode: EditMode
     @Binding var editButtonVisible: Bool
+    @Binding var sortButtonVisible: Bool
     
     @State private var pickingSortType: SortType = .ascendingDate
     
@@ -38,7 +39,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
         ToolbarItemGroup(placement: .topBarTrailing) {
             LazyHStack(alignment: .center) {
                 
-                if editMode?.wrappedValue == .inactive {
+                if sortButtonVisible && $editMode.wrappedValue == .inactive {
                     Menu {
                         Picker(selection: $pickingSortType) {
                             ForEach(SortType.allCases, id: \.self) { sortType in
@@ -57,21 +58,21 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
                 if editButtonVisible {
                     Button(action: {
                         withAnimation {
-                            if editMode?.wrappedValue == .active {
-                                editMode?.wrappedValue = .inactive
+                            if $editMode.wrappedValue == .active {
+                                $editMode.wrappedValue = .inactive
                             } else {
-                                editMode?.wrappedValue = .active
+                                $editMode.wrappedValue = .active
                             }
                         }
                     }, label: {
-                        Image(systemName: (editMode?.wrappedValue == .inactive) ? "square.and.pencil" : "checkmark.square")
+                        Image(systemName: ($editMode.wrappedValue == .inactive) ? "square.and.pencil" : "checkmark.square")
                     })
                     .squareFrame(side: toolbarButtonSize)
                     .toolbarButton()
-                    .padding(.bottom, (editMode?.wrappedValue == .inactive) ? 3 : 0)
+                    .padding(.bottom, ($editMode.wrappedValue == .inactive) ? 3 : 0)
                 }
                 
-                if editMode?.wrappedValue == .inactive {
+                if $editMode.wrappedValue == .inactive {
                     NavigationLink {
                         addDeadlineContent()
                     } label: {
@@ -107,9 +108,12 @@ extension View {
     return NavigationStack(root: {
         Text("PlaceHolder")
             .toolbar(content: {
-                DashboardToolbar(addDeadlineContent: {
-                    Text("Add")
-                }, editButtonVisible: .constant(true))
+                DashboardToolbar(
+                    addDeadlineContent: { Text("Add") },
+                    editMode: .constant(.inactive),
+                    editButtonVisible: .constant(true),
+                    sortButtonVisible: .constant(true)
+                )
             })
             .environmentObject(deadlineManager)
     })

@@ -12,9 +12,15 @@ struct DeadlineDashboard: View {
     
     @EnvironmentObject private var deadlineManager: DeadlineManager
     
+    @State private var editMode = EditMode.inactive
+    
     @State private var editButtonVisible: Bool = false
+    @State private var sortButtonVisible: Bool = false
+    
+    @State private var showOnboardingView: Bool = false
     @State private var showConfirmationForDeletingOldDeadlines: Bool = false
     
+    private var appLaunchModel = AppLaunchModel()
     @ObservedObject private var deepLinkModel = DeadlineDeepLinkModel()
     
     var body: some View {
@@ -62,13 +68,24 @@ struct DeadlineDashboard: View {
                     addDeadlineContent: {
                         NewDeadlineForm()
                     },
-                    editButtonVisible: $editButtonVisible
+                    editMode: $editMode,
+                    editButtonVisible: $editButtonVisible,
+                    sortButtonVisible: $sortButtonVisible
                 )
             }
             .overlay {
                 if deadlineManager.allDeadlines.isEmpty {
                     EmptyDeadlinesView()
                     .offset(y: -150)
+                }
+            }
+            .overlay {
+                if showOnboardingView {
+                    WelcomeView(mainAction: {
+                        withAnimation {
+                            showOnboardingView = false
+                        }
+                    })
                 }
             }
             .deleteExpiredDeadlinesAlert(
@@ -83,10 +100,23 @@ struct DeadlineDashboard: View {
             )
             .onAppear {
                 deadlineManager.refreshDeadlines()
+                
+                if !appLaunchModel.hasSeenAppBefore {
+                    appLaunchModel.setUserHasLaunchedTheApplication()
+                    withAnimation {
+                        showOnboardingView = true
+                    }
+                }
             }
             .onChange(of: deadlineManager.allDeadlines, initial: false) { _, _ in
                 editButtonVisible = !deadlineManager.allDeadlines.isEmpty
+                sortButtonVisible = !deadlineManager.allDeadlines.isEmpty
+                
+                if editMode == .active && deadlineManager.allDeadlines.isEmpty {
+                    editMode = .inactive
+                }
             }
+            .environment(\.editMode, $editMode)
             .onOpenURL { url in
                 deepLinkModel.handleDeepLink(url: url, deadlines: deadlineManager.allDeadlines)
             }

@@ -44,6 +44,7 @@ struct DeadlineRow: View {
             })
             .lineLimit(0)
         })
+        
     }
     
 }

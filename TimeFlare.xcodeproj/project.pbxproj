@@ -8,10 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		A9076C5F2AB507B90080BCA4 /* BubbleCountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9076C5E2AB507B90080BCA4 /* BubbleCountdownTimer.swift */; };
+		A90D97A32ABA5257000D682C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D97A22ABA5257000D682C /* WelcomeView.swift */; };
+		A90D97A42ABA6E6E000D682C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
+		A90D97A62ABA7286000D682C /* OnboardingItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D97A52ABA7286000D682C /* OnboardingItemView.swift */; };
+		A90D97A82ABA97EF000D682C /* RectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D97A72ABA97EF000D682C /* RectangleButton.swift */; };
+		A90D97AA2ABA99CE000D682C /* AppLaunchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D97A92ABA99CE000D682C /* AppLaunchModel.swift */; };
+		A90D97AE2ABA9CD4000D682C /* OnboardingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D97AD2ABA9CD4000D682C /* OnboardingItem.swift */; };
+		A90D97AF2ABA9DEF000D682C /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
 		A9135B4B2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */; };
 		A9135B4D2AAAE85000B5D628 /* WidgetUpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */; };
 		A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
-		A9135B502AAAEC9600B5D628 /* DeadlineSummaryFileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */; };
 		A9135B512AAAECF000B5D628 /* AppGroupInjectedKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67542AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift */; };
 		A9135B522AAAF06A00B5D628 /* TimeFlareWidgetConfigurationIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67442AA9A3BB00C1CC03 /* TimeFlareWidgetConfigurationIntent.swift */; };
 		A9135B532AAAFA2B00B5D628 /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B7749D2AA056900037E598 /* DateUtil.swift */; };
@@ -26,6 +32,7 @@
 		A9200BAE2A9EB7E30017C9BA /* InputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9200BAD2A9EB7E30017C9BA /* InputTextField.swift */; };
 		A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */; };
 		A9242A622AA1ACB1005C1BF5 /* FeaturedDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */; };
+		A95FD0582ABA26030016D929 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95FD0572ABA26030016D929 /* UserDefaults.swift */; };
 		A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99CF2AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift */; };
 		A96D99D22AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */; };
 		A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96D99D32AA7D1E900D30AD0 /* View+Extension.swift */; };
@@ -86,7 +93,6 @@
 		A9BD67622AAA857700C1CC03 /* DeadlineDayAndYearView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67602AAA857700C1CC03 /* DeadlineDayAndYearView.swift */; };
 		A9BD67652AAA8A5500C1CC03 /* DeadlineSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67632AAA8A5500C1CC03 /* DeadlineSummaryView.swift */; };
 		A9BD67682AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD67662AAA8ACE00C1CC03 /* NoDeadlineSummarySelectedView.swift */; };
-		A9BD67692AAA8EBD00C1CC03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A98F287F2A99CB6C002585F5 /* Assets.xcassets */; };
 		A9BD676B2AAAA86E00C1CC03 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */; };
 		A9BD676C2AAAA86E00C1CC03 /* DeepLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD676A2AAAA86E00C1CC03 /* DeepLink.swift */; };
 		A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CCCB6B2A9EF023006B45AD /* InputDatePicker.swift */; };
@@ -138,6 +144,11 @@
 
 /* Begin PBXFileReference section */
 		A9076C5E2AB507B90080BCA4 /* BubbleCountdownTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleCountdownTimer.swift; sourceTree = "<group>"; };
+		A90D97A22ABA5257000D682C /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		A90D97A52ABA7286000D682C /* OnboardingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItemView.swift; sourceTree = "<group>"; };
+		A90D97A72ABA97EF000D682C /* RectangleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleButton.swift; sourceTree = "<group>"; };
+		A90D97A92ABA99CE000D682C /* AppLaunchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchModel.swift; sourceTree = "<group>"; };
+		A90D97AD2ABA9CD4000D682C /* OnboardingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingItem.swift; sourceTree = "<group>"; };
 		A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineDeepLinkModel.swift; sourceTree = "<group>"; };
 		A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetUpdateManager.swift; sourceTree = "<group>"; };
 		A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSummaryFileService.swift; sourceTree = "<group>"; };
@@ -153,6 +164,7 @@
 		A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineSchemaMigrationPlan.swift; sourceTree = "<group>"; };
 		A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineStorage.swift; sourceTree = "<group>"; };
 		A9242A612AA1ACB1005C1BF5 /* FeaturedDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedDeadline.swift; sourceTree = "<group>"; };
+		A95FD0572ABA26030016D929 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		A96D99CF2AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedDeadlineInfo.swift; sourceTree = "<group>"; };
 		A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryWithSecondaryView.swift; sourceTree = "<group>"; };
 		A96D99D32AA7D1E900D30AD0 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -233,6 +245,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A90D97A12ABA5244000D682C /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A90D97A22ABA5257000D682C /* WelcomeView.swift */,
+				A90D97A52ABA7286000D682C /* OnboardingItemView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A90D97AB2ABA9C99000D682C /* Dashboard_Models */ = {
+			isa = PBXGroup;
+			children = (
+				A90D97A92ABA99CE000D682C /* AppLaunchModel.swift */,
+				A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */,
+				A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */,
+			);
+			path = Dashboard_Models;
+			sourceTree = "<group>";
+		};
+		A90D97AC2ABA9CB0000D682C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				A9B71C6A2AB8F0590049061D /* DateItem.swift */,
+				A98F28942A9A9FD0002585F5 /* Deadline.swift */,
+				A90D97AD2ABA9CD4000D682C /* OnboardingItem.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		A9200BA82A9EA60A0017C9BA /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,11 +285,20 @@
 			path = ImagePicker;
 			sourceTree = "<group>";
 		};
+		A95FD0562ABA25ED0016D929 /* User_Defaults */ = {
+			isa = PBXGroup;
+			children = (
+				A95FD0572ABA26030016D929 /* UserDefaults.swift */,
+			);
+			path = User_Defaults;
+			sourceTree = "<group>";
+		};
 		A96D99CC2AA7C00A00D30AD0 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
 				A9242A5F2AA14D52005C1BF5 /* DeadlineStorage.swift */,
 				A9242A5D2AA14D15005C1BF5 /* DeadlineSchemaMigrationPlan.swift */,
+				A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -323,7 +373,6 @@
 		A98F288C2A9A9F5E002585F5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
-				A9B774A32AA13D5A0037E598 /* Dependency_Injection */,
 				A9A178172A9D2ED4000B62A7 /* Data+Extension.swift */,
 				A9B7749F2AA05A330037E598 /* Int+Extension.swift */,
 				A96D99D32AA7D1E900D30AD0 /* View+Extension.swift */,
@@ -341,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				A98F287D2A99CB67002585F5 /* MainContentView.swift */,
+				A90D97A12ABA5244000D682C /* Onboarding */,
 				A96D99CD2AA7C0C900D30AD0 /* Deadline_Dashboard */,
 				A98F28912A9A9F99002585F5 /* Deadline_Details */,
 				A96D99CE2AA7C37200D30AD0 /* Featured_Deadline */,
@@ -352,14 +402,13 @@
 		A98F28902A9A9F8B002585F5 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A90D97AC2ABA9CB0000D682C /* Entities */,
+				A90D97AB2ABA9C99000D682C /* Dashboard_Models */,
+				A95FD0562ABA25ED0016D929 /* User_Defaults */,
+				A9B774A32AA13D5A0037E598 /* Dependency_Injection */,
 				A96D99CC2AA7C00A00D30AD0 /* Storage */,
-				A98F28942A9A9FD0002585F5 /* Deadline.swift */,
 				A9200B9C2A9DA7190017C9BA /* DeadlineManager.swift */,
-				A9135B4A2AAAB69700B5D628 /* DeadlineDeepLinkModel.swift */,
 				A9135B4C2AAAE85000B5D628 /* WidgetUpdateManager.swift */,
-				A9135B4E2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift */,
-				A97D4DF82AB294D400E1F720 /* DeadlineRowModel.swift */,
-				A9B71C6A2AB8F0590049061D /* DateItem.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -395,6 +444,7 @@
 				A96D99E12AA831ED00D30AD0 /* SnapshotDateView.swift */,
 				A96D99D12AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift */,
 				A96D99DA2AA8210F00D30AD0 /* CenteredHStack.swift */,
+				A90D97A72ABA97EF000D682C /* RectangleButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -564,7 +614,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9BD67692AAA8EBD00C1CC03 /* Assets.xcassets in Resources */,
+				A90D97A42ABA6E6E000D682C /* Assets.xcassets in Resources */,
 				A9BD67222AA91E1800C1CC03 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,12 +650,14 @@
 			files = (
 				A9200B9D2A9DA7190017C9BA /* DeadlineManager.swift in Sources */,
 				A9B7749E2AA056900037E598 /* DateUtil.swift in Sources */,
+				A90D97A62ABA7286000D682C /* OnboardingItemView.swift in Sources */,
 				A96D99D22AA7CE6700D30AD0 /* PrimaryWithSecondaryView.swift in Sources */,
 				A9BD67582AAA512500C1CC03 /* DeadlineSummaryEntityQuery.swift in Sources */,
 				A96D99D02AA7C39900D30AD0 /* FeaturedDeadlineInfo.swift in Sources */,
 				A9076C5F2AB507B90080BCA4 /* BubbleCountdownTimer.swift in Sources */,
 				A9CCCB6C2A9EF023006B45AD /* InputDatePicker.swift in Sources */,
 				A98F28932A9A9FB0002585F5 /* DeadlineRow.swift in Sources */,
+				A90D97A82ABA97EF000D682C /* RectangleButton.swift in Sources */,
 				A96D99D92AA8142400D30AD0 /* ImageThumbnail.swift in Sources */,
 				A9135B4F2AAAEB0800B5D628 /* DeadlineSummaryFileService.swift in Sources */,
 				A9B71C6B2AB8F0590049061D /* DateItem.swift in Sources */,
@@ -629,8 +681,10 @@
 				A9242A602AA14D52005C1BF5 /* DeadlineStorage.swift in Sources */,
 				A9BD676B2AAAA86E00C1CC03 /* DeepLink.swift in Sources */,
 				A9200BA72A9E94DB0017C9BA /* FileService.swift in Sources */,
+				A90D97A32ABA5257000D682C /* WelcomeView.swift in Sources */,
 				A9200B9F2A9DC2070017C9BA /* Namespace.swift in Sources */,
 				A9200BAA2A9EA6340017C9BA /* ImagePickerViewController.swift in Sources */,
+				A95FD0582ABA26030016D929 /* UserDefaults.swift in Sources */,
 				A96D99D42AA7D1E900D30AD0 /* View+Extension.swift in Sources */,
 				A98F28952A9A9FD0002585F5 /* Deadline.swift in Sources */,
 				A9BD67502AAA4B8900C1CC03 /* InjectedKeys.swift in Sources */,
@@ -640,6 +694,8 @@
 				A9A178202A9D3721000B62A7 /* DashboardToolbar.swift in Sources */,
 				A98F28A32A9D224D002585F5 /* SampleDeadline.swift in Sources */,
 				A9B71C692AB8F03F0049061D /* BubbleDateComponentView.swift in Sources */,
+				A90D97AA2ABA99CE000D682C /* AppLaunchModel.swift in Sources */,
+				A90D97AE2ABA9CD4000D682C /* OnboardingItem.swift in Sources */,
 				A9200BA32A9DC2BF0017C9BA /* NewDeadlineForm.swift in Sources */,
 				A9BD67552AAA4BC700C1CC03 /* AppGroupInjectedKeys.swift in Sources */,
 				A96D99D62AA7DD9600D30AD0 /* DeadlineListSection.swift in Sources */,
@@ -657,6 +713,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A90D97AF2ABA9DEF000D682C /* DeadlineSummaryFileService.swift in Sources */,
 				A9BD67492AA9A63E00C1CC03 /* DeadlineSummary.swift in Sources */,
 				A9BD67332AA9208E00C1CC03 /* DeadlineCountdownEntry.swift in Sources */,
 				A9BD67382AA9219A00C1CC03 /* Data+Extension.swift in Sources */,
@@ -678,7 +735,6 @@
 				A9BD67312AA9206600C1CC03 /* Provider.swift in Sources */,
 				A9BD67202AA91E1600C1CC03 /* TimeFlareWidget.swift in Sources */,
 				A9BD673D2AA92F6B00C1CC03 /* AppGroup.swift in Sources */,
-				A9135B502AAAEC9600B5D628 /* DeadlineSummaryFileService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

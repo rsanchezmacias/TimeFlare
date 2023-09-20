@@ -29,6 +29,9 @@ class DeadlineManager: ObservableObject {
     @Injected(\.deadlineStorage) private var storage
     @Injected(\.deadlineSummaryFileService) private var fileService
     
+    @UserDefaultsValue(key: .sortByPreference, defaultValue: SortType.descendingDate.rawValue)
+    private var userSortPreference
+    
     @Published var featuredDeadline: Deadline?
     @Published var allDeadlines: [Deadline] = []
     @Published var ongoingDeadlines: [Deadline] = []
@@ -37,6 +40,8 @@ class DeadlineManager: ObservableObject {
     @Published var sortBy: SortType = .ascendingDate
     
     init() {
+        sortBy = SortType(rawValue: userSortPreference) ?? .descendingDate
+        
         Task {
             await storage.setup()
             
@@ -92,6 +97,7 @@ class DeadlineManager: ObservableObject {
     
     func setSortPreference(sortBy: SortType) {
         self.sortBy = sortBy
+        self.userSortPreference = sortBy.rawValue
         refreshDeadlines()
     }
     
