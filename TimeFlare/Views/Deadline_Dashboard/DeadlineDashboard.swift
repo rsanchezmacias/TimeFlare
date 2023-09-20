@@ -68,6 +68,7 @@ struct DeadlineDashboard: View {
                     addDeadlineContent: {
                         NewDeadlineForm()
                     },
+                    editMode: $editMode,
                     editButtonVisible: $editButtonVisible,
                     sortButtonVisible: $sortButtonVisible
                 )
