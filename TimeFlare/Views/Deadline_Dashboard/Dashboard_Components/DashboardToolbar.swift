@@ -20,7 +20,7 @@ struct DashboardToolbar<Content: View>: ToolbarContent {
     
     @State private var pickingSortType: SortType = .ascendingDate
     
-    private let toolbarButtonSize: CGFloat = 30
+    private let toolbarButtonSize: CGFloat = 44
     
     var body: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {

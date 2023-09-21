@@ -19,7 +19,7 @@ enum DateComponent: CaseIterable, Hashable {
     }
     
     static var timerComponents: [DateComponent] {
-        return [.seconds, .minutes, .hours]
+        return [.hours, .minutes, .seconds]
     }
     
     var singularNoun: String {

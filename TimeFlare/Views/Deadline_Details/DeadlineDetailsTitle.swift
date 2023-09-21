@@ -28,6 +28,7 @@ struct DeadlineDetailsTitle: View {
                     .labelStyle(.iconOnly)
                     .foregroundStyle(Color.yellow)
                 }
+                .frame(width: 44)
             }
             Text(deadline.endDate, format: .dateTime)
                 .font(.system(size: 12, weight: .semibold))

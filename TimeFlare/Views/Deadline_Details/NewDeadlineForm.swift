@@ -54,6 +54,7 @@ struct NewDeadlineForm: View {
                 .font(.subheadline)
             }
             .padding([.leading, .trailing], 32)
+            .padding([.bottom], 24)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar(content: {
                 ToolbarItemGroup(placement: .topBarTrailing) {

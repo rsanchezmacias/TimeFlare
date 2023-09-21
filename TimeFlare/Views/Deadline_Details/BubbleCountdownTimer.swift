@@ -24,7 +24,7 @@ struct BubbleCountdownTimer: View {
                 ForEach(timerItems) { item in
                     BubbleDateComponentView(item: item, diameter: bubbleSize)
                     
-                    if item.component == .seconds || item.component == .minutes {
+                    if item.component == .hours || item.component == .minutes {
                         Text(":")
                             .foregroundStyle(Color.metal)
                             .font(.system(size: 28, weight: .bold))
