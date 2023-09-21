@@ -31,7 +31,7 @@ struct TimeFlareWidget: Widget {
                 }
             }
             .configurationDisplayName("Deadline Countdown")
-            .description("Display a countdown for your featured deadline. Simply switch the featured deadline to update the countdown.")
+            .description("Display a countdown for a deadline of your choice! Simply edit the widget to display a new countdown.")
             .supportedFamilies([.systemSmall])
     }
     
