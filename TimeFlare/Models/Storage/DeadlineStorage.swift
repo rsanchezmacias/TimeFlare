@@ -52,6 +52,7 @@ class DeadlineStorage: DeadlineStorageProtocol {
     func delete(deadline: Deadline) {
         widgetUpdateManager.setAsDirtyIfNeeded(affectedDeadline: deadline)
         modelContainer?.mainContext.delete(deadline)
+        commit()
     }
     
     @MainActor

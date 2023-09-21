@@ -120,7 +120,7 @@ class DeadlineManager: ObservableObject {
         }
     }
     
-    func delete(deadline: Deadline) {
+    func delete(deadline: Deadline, refresh: Bool = true) {
         Task {
             await storage.delete(deadline: deadline)
             refreshDeadlines()
@@ -135,7 +135,10 @@ class DeadlineManager: ObservableObject {
             
             let deadlineToDelete = deadlines[index]
             delete(deadline: deadlineToDelete)
+            break
         }
+        
+        refreshDeadlines()
     }
     
     func deleteAll() {
