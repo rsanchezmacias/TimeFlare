@@ -15,6 +15,7 @@ struct DeadlineCountdownView: View {
         Text(countdownDate, style: .timer)
             .font(.system(size: 28))
             .foregroundStyle(Color.white)
+            .minimumScaleFactor(0.8)
             .bold()
     }
 }
