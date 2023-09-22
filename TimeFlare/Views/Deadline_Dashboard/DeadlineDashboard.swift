@@ -60,13 +60,15 @@ struct DeadlineDashboard: View {
                         }
                     )
                 }
-                
-                CenteredHStack {
-                    PoliciesAndTermsView()
+            }
+            .toolbar {
+                ToolbarItemGroup(placement: .bottomBar) {
+                    CenteredHStack {
+                        PoliciesAndTermsView()
+                    }
+                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
                 }
-                .listRowBackground(Color.clear)
-                .listRowInsets(EdgeInsets())
-                
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
