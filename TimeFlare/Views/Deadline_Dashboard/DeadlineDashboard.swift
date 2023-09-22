@@ -61,6 +61,12 @@ struct DeadlineDashboard: View {
                     )
                 }
                 
+                CenteredHStack {
+                    PoliciesAndTermsView()
+                }
+                .listRowBackground(Color.clear)
+                .listRowInsets(EdgeInsets())
+                
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
