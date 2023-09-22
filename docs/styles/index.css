@@ -1,0 +1,47 @@
+
+.main {
+    padding-left: 20px;
+    padding-top: 20px;
+    
+    position:relative;
+    width:90%;
+    max-width:1024px;
+    margin: 0 auto
+}
+
+.timeflare__img {
+    max-width: 15%;
+    margin-right: 10px;   
+}
+
+.header__titlecontainer {
+    height: 20%;
+    width: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.header__apptitle {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.resources__list {
+    margin: 8px 0px 24px 0px;
+}
+
+.resources__list-item {
+    margin: 8px 0px;
+}
+
+.resources__list-link {
+    color: blue !important;
+    text-decoration: none;
+}
+
+.resources__list-link:hover {
+    text-decoration: underline;
+}
+

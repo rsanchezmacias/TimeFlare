@@ -1,0 +1,45 @@
+
+.centered-container {
+    position: relative;
+    width: 90%;
+    max-width: 1024px;
+    margin: 0 auto
+}
+
+hr {
+    background-color: rgb(197, 195, 195);
+    border: none;
+    height: 1px;
+}
+
+.header__title {
+    font-size: 40px;
+}
+
+.subtitle-section {
+    padding: 8px 0px;
+}
+
+.form__section-title {
+    font-size: 32px;
+}
+
+.form__section-subtitle {
+    font-size: 24px;
+}
+
+.form__section-subtitle-category {
+    font-size: 16px;
+}
+
+.form__section-body {
+    line-height: 2em;
+}
+
+.form__list-item {
+    padding: 4px 0px;
+}
+
+.acknowledgements-section {
+    padding: 16px 0px
+}
