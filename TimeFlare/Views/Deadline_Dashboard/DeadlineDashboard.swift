@@ -25,9 +25,7 @@ struct DeadlineDashboard: View {
     
     var body: some View {
         NavigationStack(path: $deepLinkModel.path, root: {
-            
             List {
-                
                 if let featured = deadlineManager.featuredDeadline {
                     FeaturedDeadline(deadline: featured)
                     .listRowInsets(EdgeInsets())
@@ -61,18 +59,15 @@ struct DeadlineDashboard: View {
                     )
                 }
             }
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    CenteredHStack {
-                        PoliciesAndTermsView()
-                    }
-                    .listRowBackground(Color.clear)
-                    .listRowInsets(EdgeInsets())
-                }
+            .safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 40)
             }
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                DashboardToolbar(
+                DashboardNavigationToolbar()
+            }
+            .overlay(alignment: .bottomTrailing) {
+                DeadlineActionsGroupView(
                     addDeadlineContent: {
                         NewDeadlineForm()
                     },
@@ -80,6 +75,7 @@ struct DeadlineDashboard: View {
                     editButtonVisible: $editButtonVisible,
                     sortButtonVisible: $sortButtonVisible
                 )
+                .padding()
             }
             .overlay {
                 if deadlineManager.allDeadlines.isEmpty {
