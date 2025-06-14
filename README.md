@@ -24,7 +24,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-    <img src="TimeFlare/Resources/logo_transparent_background.svg" alt="Logo" width="80" height="80">
+    <img src="TimeFlare/Resources/logo_transparent_background.png" alt="Logo" width="80" height="80">
 <h3 align="center" style="font-size:24px;">TimeFlare</h3>
 
   <p align="center">
