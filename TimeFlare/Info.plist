@@ -4,6 +4,8 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSSupportsLiveActivities</key>
+	<false/>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Your photos will only be used to display a small thumbnail for deadline, if desired.</string>
 	<key>CFBundleURLTypes</key>

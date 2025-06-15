@@ -15,7 +15,7 @@ struct DashboardNavigationToolbar: ToolbarContent {
     // URLs for settings menu
     private let privacyPolicyURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/privacy_policy.html")
     private let termsAndConditionsURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/terms_and_conditions.html")
-    private let contactUsURL = URL(string: "https://www.facebook.com/timeflareapp/")
+    private let contactUsURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/")
     
     var body: some ToolbarContent {
         ToolbarItem(placement: .topBarLeading) {

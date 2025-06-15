@@ -44,27 +44,27 @@ struct DeadlineSummary: AppEntity, Codable {
     static let sampleDeadlineSummaries: [DeadlineSummary] = [
         DeadlineSummary(
             id: UUID(),
-            title: "Trip to GDL",
-            description: "Trip to visit parents and wedding",
-            endDate: Date(timeIntervalSinceNow: 4533)
+            title: "Project Deadline",
+            description: "Complete the quarterly project presentation",
+            endDate: Date(timeIntervalSinceNow: 604800) // 7 days
         ),
         DeadlineSummary(
             id: UUID(),
-            title: "First layoff wave",
-            description: "Haren and Justin losing job this round",
-            endDate: Date(timeIntervalSinceNow: 5)
+            title: "Conference Registration",
+            description: "Register for the annual developer conference",
+            endDate: Date(timeIntervalSinceNow: 86400) // 1 day
         ),
         DeadlineSummary(
             id: UUID(),
-            title: "Second layoff wave",
-            description: "I am losing my job this round",
-            endDate: Date(timeIntervalSinceNow: 18543)
+            title: "Assignment Due",
+            description: "Submit final assignment for course completion",
+            endDate: Date(timeIntervalSinceNow: 259200) // 3 days
         ),
         DeadlineSummary(
             id: UUID(),
-            title: "First layoff wave",
-            description: "Haren and Justin losing job this round",
-            endDate: Date(timeIntervalSinceNow: -1)
+            title: "Vacation Planning",
+            description: "Book flights and accommodations for summer trip",
+            endDate: Date(timeIntervalSinceNow: 1209600) // 14 days
         )
     ]
     

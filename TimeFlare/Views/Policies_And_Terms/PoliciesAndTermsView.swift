@@ -11,7 +11,7 @@ struct PoliciesAndTermsView: View {
     
     let privacyPolicyURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/privacy_policy.html")
     let termsAndConditionsURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/terms_and_conditions.html")
-    let contactUsURL = URL(string: "https://www.facebook.com/timeflareapp/")
+    let contactUsURL = URL(string: "https://rsanchezmacias.github.io/TimeFlare/")
     
     var body: some View {
         HStack(alignment: .center, spacing: 4, content: {
