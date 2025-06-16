@@ -38,10 +38,6 @@ struct Provider: AppIntentTimelineProvider {
         var expiredDeadlineCopy = configuration.deadline
         expiredDeadlineCopy?.isExpired = true
         
-        // The deadline summary used for entries in between the second entry and the expired entry
-        var continuingDeadline = configuration.deadline
-        continuingDeadline?.startingDate = reloadDate + 1
-        
         // MARK: - Timeline calculation
         
         let startingEntry = DeadlineCountdownEntry(date: Date.now, deadlineSummary: configuration.deadline)
@@ -49,18 +45,22 @@ struct Provider: AppIntentTimelineProvider {
         
         (0...days).forEach { day in
             var nextEntry: DeadlineCountdownEntry
+            let entryDate = reloadDate + (Self.dayTimeInterval * Double(day))
             
             if day == days {
                 // The last entry must be the expired deadline
                 nextEntry = DeadlineCountdownEntry(
-                    date: reloadDate + (Self.dayTimeInterval * Double(day)),
+                    date: entryDate,
                     deadlineSummary: expiredDeadlineCopy
                 )
             } else {
-                // Any entry in between offsets the starting date by the seconds, minutes, and hours of the end date. We can leverage SwiftUI Text dynamic
-                // content by following this approach.
+                // Create a deadline summary with startingDate set to when this entry becomes active
+                // This ensures the countdown date calculation is always relative to the entry's activation time
+                var continuingDeadline = configuration.deadline
+                continuingDeadline?.startingDate = entryDate
+                
                 nextEntry = DeadlineCountdownEntry(
-                    date: reloadDate + (Self.dayTimeInterval * Double(day)),
+                    date: entryDate,
                     deadlineSummary: continuingDeadline
                 )
             }
